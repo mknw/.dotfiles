@@ -9,7 +9,7 @@
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/bundle/nerdtree-git-plugin"]
 	path = vim/bundle/nerdtree-git-plugin
-	url = https://github.com/Xuyuanp/nedtree-git-plugin.git
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
 [submodule "vim/bundle/taglist.vim"]
 	path = vim/bundle/taglist.vim
 	url = https://github.com/vim-scripts/taglist.vim.git
