@@ -1,0 +1,2 @@
+" Auto-open at vim startup.
+let Tlist_Auto_Open=1 " works with let since the variable doesn't belong to default vim settings.

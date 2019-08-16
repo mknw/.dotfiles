@@ -1,0 +1,24 @@
+" font and display settings
+colorscheme molokai_dark
+highlight Comment cterm=bold
+set relativenumber
+set number
+" powerline settings
+" set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
+
+" let's get indentation right once and for all
+set autoindent noexpandtab tabstop=2 shiftwidth=2 softtabstop=-1
+
+autocmd BufNewFile,BufRead *.py
+	\ set textwidth=79 fileformat=unix encoding=utf-8
+
+" search parameters
+set hls " short for hlsearch
+" set ic " ignorecase
+
+" What is essential is invisible to the eye"
+set list
+set listchars=eol:⏎,tab:⟩\ ,trail:␠,nbsp:⎵,extends:>,precedes:<
+

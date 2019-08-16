@@ -1,0 +1,3 @@
+[submodule "prompts/powerlevel10k"]
+	path = prompts/powerlevel10k
+	url = http://github.com/romkatv/powerlevel10k.git

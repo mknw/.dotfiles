@@ -1,0 +1,71 @@
+"
+" Get the defaults that most users want.
+source $VIMRUNTIME/defaults.vim
+"
+"if has("vms")
+"  set nobackup		" do not keep a backup file, use versions instead
+"else
+"  set backup		" keep a backup file (restore to previous version)
+"  if has('persistent_undo')
+"    set undofile	" keep an undo file (undo changes after closing)
+"  endif
+"endif
+
+
+" Add optional packages.
+"
+" The matchit plugin makes the % command work better, but it is not backwards
+" compatible.
+" The ! means the package won't be loaded right away but when plugins are
+" loaded during initialization.
+if has('syntax') && has('eval')
+  packadd! matchit
+endif
+
+
+
+" custom paths
+set viminfo+=n~/.config/vim/viminfo
+set runtimepath+=~/.config/vim,~/.config/vim/after
+set directory=~/.config/vim/swap//,.,/var/tmp,/tmp " removed ~/tmp as 3rd to last(after .)
+set backupdir=~/.config/vim/backup//,.,~/tmp,~/
+set undodir=~/.config/vim/undo//,.
+" custom code installingen
+set foldmethod=indent
+set foldlevel=99
+
+" indentation for plugin manager checking is important
+if empty(glob('~/.config/vim/autoload/plug.vim'))
+   silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source ~/.config/vim/vimrc
+endif
+
+" Airline Theme
+let g:airline_powerline_fonts = 1
+let g:airline_theme='deus'
+
+
+""" TagList plugin:
+filetype on
+" (from taglist docs) taglist can find universal-ctags by setting:
+" Tlist_Ctags_Cmd='path/to/binary'
+"
+" Auto-open at vim startup.
+au BufNewFile,BufRead *.py
+	\ let Tlist_Auto_Open=1
+
+" toggle taglist with F8:
+nnoremap <silent> <F8> :TlistToggle<CR>
+
+call plug#begin('~/.config/vim/bundle')
+" Plug 'junegunn/seoul256'
+Plug 'vim-scripts/taglist.vim'
+Plug 'vim-scripts/restore_view.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'paroxayte/vwm.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'severin-lemaignan/vim-minimap'
+call plug#end()
