@@ -25,11 +25,11 @@ endif
 
 
 " custom paths
-set viminfo+=n~/.config/vim/viminfo
-set runtimepath+=~/.config/vim,~/.config/vim/after
-set directory=~/.config/vim/swap//,.,/var/tmp,/tmp " removed ~/tmp as 3rd to last(after .)
-set backupdir=~/.config/vim/backup//,.,~/tmp,~/
-set undodir=~/.config/vim/undo//,.
+set viminfo+=n~/.dotfiles/vim/viminfo
+set runtimepath+=~/.dotfiles/vim,~/.dotfiles/vim/after
+set directory=~/.dotfiles/vim/swap//,.,/var/tmp,/tmp " removed ~/tmp as 3rd to last(after .)
+set backupdir=~/.dotfiles/vim/backup//,.,~/tmp,~/
+set undodir=~/.dotfiles/vim/undo//,.
 " custom code installingen
 set foldmethod=indent
 set foldlevel=99
@@ -58,7 +58,7 @@ au BufNewFile,BufRead *.py
 " toggle taglist with F8:
 nnoremap <silent> <F8> :TlistToggle<CR>
 
-call plug#begin('~/.config/vim/bundle')
+call plug#begin('~/.dotfiles/vim/bundle')
 " Plug 'junegunn/seoul256'
 Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/restore_view.vim'
