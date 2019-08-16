@@ -4,3 +4,5 @@ rm ~/.dotfiles/zsh/zfunctions/*
 ln -s ~/.dotfiles/prompts/p10k-lean.zsh ~/.dotfiles/zsh/zfunctions/prompt_p10klean_setup
 ln -s ~/.dotfiles/prompts/powerlevel10k/powerlevel9k.zsh-theme ~/.dotfiles/zsh/zfunctions/prompt_powerlevel10k_setup
 ln -s ~/.dotfiles/prompts/spaceship-prompt/spaceship.zsh ~/.dotfiles/zsh/zfunctions/prompt_spaceship_setup
+
+# To change ZDOTDIR edit /etc/zsh/zshenv
