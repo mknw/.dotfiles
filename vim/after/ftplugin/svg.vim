@@ -1,1 +1,0 @@
-/home/maccetto/.config/vim/vimrc-after
