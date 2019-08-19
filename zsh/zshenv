@@ -27,6 +27,8 @@ alias ls="ls --color=auto"
 # alias pleasetlmgr="sudo /usr/local/texlive/2019/bin/x86_64-linux/tlmgr" 
 alias f-joast='ssh -t maccetto@joascantech.com ssh maccetto@app.joascantech.com'
 alias clvimswp='rm ~/.config/vim/swap/*'
+alias tmux="tmux -f ~/.dotfiles/tmux/tmux.conf"
+alias reload="exec /bin/zsh -l"
 # # python shit
 # export PYTHONPATH="$PYTHONPATH:~/.local/lib/python3.6/site-packages"
 export VIRTUAL_ENV_DISABLE_PROMPT=1

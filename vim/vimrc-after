@@ -1,3 +1,7 @@
+" To link ~/.dotfiles/vim/after/ftplugin/* to ~/.dotfiles/vim/vimrc-after:
+" run ~/.dotfiles/vim_ft_setup
+
+
 " font and display settings
 colorscheme molokai_dark
 highlight Comment cterm=bold
