@@ -30,6 +30,7 @@ alias f-joast='ssh -t maccetto@joascantech.com ssh maccetto@app.joascantech.com'
 alias clearvimswap='rm ~/.dotfiles/vim/swap/*'
 alias tmux="tmux -f ~/.dotfiles/tmux/tmux.conf"
 alias reload="exec /bin/zsh -l"
+alias unzip="~/bin/unzip/usr/bin/unzip"
 # # python shit
 # export PYTHONPATH="$PYTHONPATH:~/.local/lib/python3.6/site-packages"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
