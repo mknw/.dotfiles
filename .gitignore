@@ -4,3 +4,4 @@ zsh/.zcompdump
 vim/after/ftplugin/*
 vim/viminfo
 vim/swap
+vim/bundle/*
