@@ -10,34 +10,39 @@ EDITOR="vim"
 # SPACESHIP_VI_MODE_SHOW=false
 
 # vim initialization
-MYVIMRC="~/.dotfiles/vim/vimrc"
-VIMINIT="source $MYVIMRC"
+export MYVIMRC="~/.dotfiles/vim/vimrc"
+export VIMINIT="source $MYVIMRC"
 
 
 # brightness
 # alias br="/home/mknw/scripts/brightness" # to be changed to script
 
 # run gotop (will have to go in /usr/bin at some point)
-# alias gotop="~/scripts/gotop -b"
+alias gotop="~/scripts/gotop -b"
 #
 # ssh
-# alias appjoast="ssh maccetto@app.joascantech.com"
-alias appjoast="ssh maccetto@10.0.10.139"
+alias appjoast="ssh maccetto@app.joascantech.com"
 alias joast="ssh maccetto@joascantech.com"
 alias ls="ls --color=auto"
 # alias pleasetlmgr="sudo /usr/local/texlive/2019/bin/x86_64-linux/tlmgr" 
 alias f-joast='ssh -t maccetto@joascantech.com ssh maccetto@app.joascantech.com'
+<<<<<<< HEAD
 alias clearvimswap='rm ~/.dotfiles/vim/swap/*'
 alias tmux="tmux -f ~/.dotfiles/tmux/tmux.conf"
 alias reload="exec /bin/zsh -l"
 alias unzip="~/bin/unzip/usr/bin/unzip"
+=======
+alias clvimswp='rm ~/.config/vim/swap/*'
+alias tmux="tmux -f ~/.dotfiles/tmux/tmux.conf"
+alias reload="exec /bin/zsh -l"
+>>>>>>> origin/mknw
 # # python shit
 # export PYTHONPATH="$PYTHONPATH:~/.local/lib/python3.6/site-packages"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 # #
 #
 # Let's add texlive to the path
-# typeset -U path
-# path=(/usr/local/texlive/2019/bin/x86_64-linux $path)
+typeset -U path
+path=(/usr/local/texlive/2019/bin/x86_64-linux $path)
 fpath=( "$ZDOTDIR/zfunctions" $fpath )
 path=('~/.local/bin' $path)

@@ -80,4 +80,7 @@ else
 fi
 
 exit 0
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/mknw
