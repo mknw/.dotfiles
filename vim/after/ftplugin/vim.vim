@@ -1,1 +1,1 @@
-/home/maccetto/.config/vim/vimrc-after
+/home/maccetto/.dotfiles/vim/vimrc-after
