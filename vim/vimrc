@@ -33,6 +33,8 @@ set undodir=~/.dotfiles/vim/undo//,.
 " custom code installingen
 set foldmethod=indent
 set foldlevel=99
+" 256 Colors Support
+set t_Co=256
 
 " indentation for plugin manager checking is important
 if empty(glob('~/.dotfiles/vim/autoload/plug.vim'))

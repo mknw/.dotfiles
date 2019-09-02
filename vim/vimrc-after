@@ -16,7 +16,8 @@ set t_Co=256
 set autoindent noexpandtab tabstop=2 shiftwidth=2 softtabstop=-1
 
 autocmd BufNewFile,BufRead *.py
-	\ set textwidth=79 fileformat=unix encoding=utf-8
+	\ set textwidth=79 fileformat=unix encoding=utf-8 
+	\ set colorcolumn=80
 
 " search parameters
 set hls " short for hlsearch
