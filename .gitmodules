@@ -28,3 +28,6 @@
 [submodule "vim/bundle/restore_view.vim"]
 	path = vim/bundle/restore_view.vim
 	url = https://github.com/vim-scripts/restore_view.vim.git
+[submodule "bashx"]
+	path = bashx
+	url = https://github.com/mknw/bashx.git
