@@ -1,5 +1,7 @@
 #!/bin/bash
 # At the (bourne) shell prompt
+
+# TODO: remove ~/.vim
 mkdir -p ~/.dotfiles/vim/after/ftplugin
 rm ~/.dotfiles/vim/after/ftplugin/*
 for file in /usr/share/vim/vim80/ftplugin/*.vim
