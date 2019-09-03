@@ -4,27 +4,27 @@
 [submodule "prompts/spaceship-prompt"]
 	path = prompts/spaceship-prompt
 	url = https://github.com/denysdovhan/spaceship-prompt.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/nerdtree-git-plugin"]
-	path = vim/bundle/nerdtree-git-plugin
-	url = https://github.com/Xuyuanp/nedtree-git-plugin.git
-[submodule "vim/bundle/taglist.vim"]
-	path = vim/bundle/taglist.vim
-	url = https://github.com/vim-scripts/taglist.vim.git
-[submodule "vim/bundle/vim-airline"]
-	path = vim/bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
-[submodule "vim/bundle/vim-airline-themes"]
-	path = vim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "vim/bundle/vim-minimap"]
-	path = vim/bundle/vim-minimap
-	url = https://github.com/severin-lemaignan/vim-minimap.git
-[submodule "vim/bundle/vwm.vim"]
-	path = vim/bundle/vwm.vim
-	url = https://github.com/paroxayte/vwm.vim.git
-[submodule "vim/bundle/restore_view.vim"]
-	path = vim/bundle/restore_view.vim
-	url = https://github.com/vim-scripts/restore_view.vim.git
+# [submodule "vim/bundle/nerdtree"]
+# 	path = vim/bundle/nerdtree
+# 	url = https://github.com/scrooloose/nerdtree.git
+# [submodule "vim/bundle/nerdtree-git-plugin"]
+# 	path = vim/bundle/nerdtree-git-plugin
+# 	url = https://github.com/Xuyuanp/nedtree-git-plugin.git
+# [submodule "vim/bundle/taglist.vim"]
+# 	path = vim/bundle/taglist.vim
+# 	url = https://github.com/vim-scripts/taglist.vim.git
+# [submodule "vim/bundle/vim-airline"]
+# 	path = vim/bundle/vim-airline
+# 	url = https://github.com/vim-airline/vim-airline.git
+# [submodule "vim/bundle/vim-airline-themes"]
+# 	path = vim/bundle/vim-airline-themes
+# 	url = https://github.com/vim-airline/vim-airline-themes.git
+# [submodule "vim/bundle/vim-minimap"]
+# 	path = vim/bundle/vim-minimap
+# 	url = https://github.com/severin-lemaignan/vim-minimap.git
+# [submodule "vim/bundle/vwm.vim"]
+# 	path = vim/bundle/vwm.vim
+# 	url = https://github.com/paroxayte/vwm.vim.git
+# [submodule "vim/bundle/restore_view.vim"]
+# 	path = vim/bundle/restore_view.vim
+# 	url = https://github.com/vim-scripts/restore_view.vim.git

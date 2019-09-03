@@ -14,8 +14,7 @@ export MYVIMRC="~/.dotfiles/vim/vimrc"
 export VIMINIT="source $MYVIMRC"
 
 
-# brightness
-# alias br="/home/mknw/scripts/brightness" # to be changed to script
+# brightnesalias br="/home/mknw/scripts/brightness" # to be changed to script
 
 # run gotop (will have to go in /usr/bin at some point)
 alias gotop="~/scripts/gotop -b"
@@ -29,7 +28,8 @@ alias f-joast='ssh -t maccetto@joascantech.com ssh maccetto@app.joascantech.com'
 alias clvimswp='rm ~/.config/vim/swap/*'
 alias tmux="tmux -f ~/.dotfiles/tmux/tmux.conf"
 alias reload="exec /bin/zsh -l"
-# # python shit
+
+# # python shtuff
 # export PYTHONPATH="$PYTHONPATH:~/.local/lib/python3.6/site-packages"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 # #
