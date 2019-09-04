@@ -23,6 +23,7 @@ alias gotop="~/scripts/gotop -b"
 alias appjoast="ssh maccetto@app.joascantech.com"
 alias joast="ssh maccetto@joascantech.com"
 alias ls="ls --color=auto"
+alias spinoza="ssh accetto@login-01.spinozacentre.nl"
 # alias pleasetlmgr="sudo /usr/local/texlive/2019/bin/x86_64-linux/tlmgr" 
 alias f-joast='ssh -t maccetto@joascantech.com ssh maccetto@app.joascantech.com'
 alias clvimswp='rm ~/.config/vim/swap/*'
