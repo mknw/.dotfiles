@@ -55,8 +55,8 @@ let g:airline_theme='deus'
 " Tlist_Ctags_Cmd='path/to/binary'
 "
 " Auto-open at vim startup.
-au BufNewFile,BufRead *.py
-	\ let Tlist_Auto_Open=1
+" au BufNewFile,BufRead *.py
+" 	\ let Tlist_Auto_Open=1
 
 " toggle taglist with F8:
 "nnoremap <silent> <F8> :TlistToggle<CR>
@@ -72,3 +72,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'severin-lemaignan/vim-minimap'
 call plug#end()
+
+set mouse=
+set ttymouse=

@@ -8,113 +8,117 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/ZDOTDIR
+~MSle0~/piezoluminescent
 
 # Last Substitute Search Pattern:
-~MSle0&vwm#layouts
+~MSle0&piezoluminescent_turd
 
 # Last Substitute String:
-$
+$piezoluminescent_scart
 
 # Command Line History (newest to oldest):
-:wq
 :q
-:PlugUpdate
 :w
-:tabnew ~/.dotfiles/vim/vimrc
-:o ~/.dotfiles/vim/vimrc
-:vs requirements2.txt
+:Q
+:wq
+:colo molokai
+:colo=molokai
+:set color molokai
+:set colorcolumn=79
+:set textwidth=88
+:set cc=80
+:textwidth=88
 :qa
-:Minimap
-:mksession! mrcnnsesh
-:h minimap
-:vertical resize 35
-:PlugInstall
-:NERDTreeToggle
-:tabnew .gitignore
 :wa
-:hres 30
-:source mrcnnsesh
-:h mksession
-:help mksession
-:wqa
-:mksession mrcnnsesh
+:nohl
+:sp analysis_wietske/plotPercentageCorrect_perScan_selectedims.m
+:!ls
+:%s/piezoluminescent_turd/piezoluminescent_scart/g
+:sp
+:colo vice
+:'<,'>s/.mat//g
+:sp ../python/imgn_change.py
+:!echo $VIMRUNTIME
+:NERDTreeToggle
 :tabnew
-:sp segment.py
-:! echo %
-:echo %
+:abnew
+:term
+:vs ../python/identifySelection.py
+:'<,'>s/'/"/g
+:'<,'>s/[/{/g
+:'<,'>s/"/'/g
+:sp analysis_wietske/identifySelection.m
+:q!
+:w identifySelection.old.m
+:e
+:pwd
+:set wrap
+:set nowrap
+:we
+:'<,'>s/validTrVxs/validThrVxs/g
+:'<,'>s/'/"/gc
+:vs W_theanalysis.m
+:sp W_theanalysis.m
+:sp W_theanalysis.mm
+:w W_theanalysis.mm
+:'<,'>w analysis_wietske/clipshit
+:echo has('clipboard')
+:sp analysis_wietske/rmMakePredictions_perScan_rotate.m
+:'<,'>s/blockDesignCorr/betasDesignMtxT/g
 :set nornu
-:resize vertical +10
-:resize vertical -10
-:resize vertical -20
-:resize vertical +30
-:resize vertical +5
-:help number
-:set nonumber
-:set nonu
-:vertical resize 30
-:res +5
-:res -20
-:resize 30
-:resize 12
-:resize 10
-:NERDTree
-:TlistToggle
-:h relativenumber
-:nornu
-:help relativenumber
-:norelativeno
-:norelativenumber
-:nonumber
-:echo NERDTree_close
+:set rnu
 
 # Search String History (newest to oldest):
-?/ZDOTDIR
-?/skl
-?/numpy
-?/h5
-? \<ProposalLayer\>
-?/clip_boxes_graph
-?/minimap
-?/apply_box_deltas_graph
-?/apply_box_deltas
-?/load
-?/load-session
-?/loadsession
-?/restore-session
-?/restore session
-?/apply
-?/TagList
-?/taglist
-? vwm#layouts
-?/airline theme
-?/airline-themes
-?/theme
-?/open file
-?/idea
-? @$
-?/font
-?/power
-?/powerfont
-??\a
-?/molo	
-?/molo
-?/compute
-?/roialign
-?/def nms
-?/def compute
-?/ke
-?/class Propo
-? \<log\>
-?/def apply
-?/prepend
-?/formatoptions
-?/whence
-?/^prefix
-?/prefix
-?/--program-prefix
-?/vim
-? \<silent\>
+?/piezoluminescent
+? piezoluminescent_turd
+? \<initRmParams\>
+? \<eccThr\>
+? .mat
+?/sio
+? \<mat_to_strarr\>
+? \<match_persubject\>
+? \<find_path_match\>
+? '
+? [/{/g
+? "
+?/generate
+?/ooo
+? \<data\>
+?/retrieve
+? validTrVxs
+?/shant
+?/Analysis function
+?/function
+?/"
+? \<voxelData\>
+?/plotPercentage
+? \<modelCorr\>
+? blockDesignCorr
+? \<blockDesignCorr\>
+? \t
+?/analyse_sub
+? numberOfImagesSel
+?/numberOf
+?/veTr
+?/ecc
+? betasDesignMatrix
+? \<nImgs\>
+? numberOfVoxels
+? numOfImScanned
+? numOfImages
+? \<roiName\>
+? \<eccTrBool\>
+? \<corrPosBool\>
+? \<varexpTrBool\>
+?/eccT
+?/beta
+?/sigma
+? ROI
+? thresholdvals
+? wietskeROI
+? \<coords\>
+?/mouse
+?/colo
 
 # Expression History (newest to oldest):
 
@@ -125,200 +129,828 @@ $
 
 # Registers:
 "0	LINE	0
-	  let g:airline_powerline_fonts = 1
-""1	LINE	0
+	% make the correlation matrix for predicted vs actual image 
+	data.correlationMatrix = zeros(nImgsSel,nImgsSel);
+	data.correlationMatrixPredictions = zeros(nImgsSel,nImgsSel);
+	data.correctIm = zeros(1,nImgsSel);
+	data.predictedImage = zeros(1,nImgsSel);
+"1	LINE	0
+	
 	
 "2	LINE	0
-	
-	
-"3	CHAR	0
-	unix
-		
+	setvals = sio.loadmat(matlist_abspath[0])
+"3	LINE	0
+	import ipdb;ipdb.set_trace()
 "4	LINE	0
-	" let Tlist_Auto_Open=1
+	import ipdb;ipdb.set_trace()
 "5	LINE	0
-		\ set encoding=utf-8
+	
 "6	LINE	0
-		\ setlocal
+	pt = '~/Desktop/piezoluminescent_turd/1_LS'
 "7	LINE	0
-	" Auto-open at vim startup.
-	" let Tlist_Auto_Open=1 " doesn't work in this file 
-"8	BLOCK	1
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
+"8	LINE	0
+					%
 "9	LINE	0
-	
-	
-	
 	
 "j	CHAR	0
 	jjko	€kb€kb€kb":w
-"q	CHAR	0
+"l	CHAR	0
+	lkkkk
+"o	CHAR	0
+	jjjkkkjjjjjjjkj
+"q@	CHAR	0
 	:qjjjj	:TlistToggle:t€kbTlisttg€kb€kbTogglejjkkhjjjjkkkjwljjjjjjjkkkjjjjjjkkkkllll:res + 10jkkk:vertical res + €kb10:vertical €kb€kb€kb€kb€kb€kb€kb€kbres + €kb10€kd€kd€kd€kd€kd€kd10+jkkkq
-"-	CHAR	0
-	 bashdb
+""-	CHAR	0
+	a
 
 # File marks:
-'0  4  11  ~/.dotfiles/.gitignore
-'1  1  0  ~/.dotfiles/vim/vimrc
-'2  21  30  ~/.profile
-'3  1  0  ~/.bashrc
-'4  3  4  ~/source/xnet/keras-frcnn/.gitignore
-'5  1  0  ~/source/xnet/keras-frcnn/requirements.txt
-'6  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
-'7  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
-'8  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
-'9  1  0  ~/source/xnet/keras-frcnn/NERD_tree_1
+'0  36  0  ~/.dotfiles/vim/vimrc
+'1  6  0  ~/.dotfiles/.gitignore
+'2  5  9  ~/.dotfiles/.gitignore
+'3  29  0  ~/Desktop/Change-bluntness/python/imgn_change.py
+'4  28  0  ~/Desktop/Change-bluntness/python/imgn_change.py
+'5  12  0  ~/Desktop/Change-bluntness/python/identifySelection.py
+'6  146  0  ~/Desktop/Change-bluntness/python/imgn_change.py
+'7  56  0  ~/Desktop/Change-bluntness/python/viz.py
+'8  57  0  ~/Desktop/Change-bluntness/python/viz.py
+'9  28  0  ~/Desktop/Change-bluntness/python/viz.py
 
 # Jumplist (newest first):
+-'  36  0  ~/.dotfiles/vim/vimrc
+-'  48  0  ~/.dotfiles/vim/vimrc
+-'  6  0  ~/.dotfiles/.gitignore
+-'  5  9  ~/.dotfiles/.gitignore
 -'  4  11  ~/.dotfiles/.gitignore
--'  1  0  ~/.dotfiles/.gitignore
--'  1  0  ~/.dotfiles/vim/vimrc
--'  21  30  ~/.profile
--'  23  0  ~/.profile
--'  1  0  ~/.bashrc
--'  1  0  ~/.bashrc
--'  106  0  ~/.bashrc
--'  106  0  ~/.bashrc
--'  3  4  ~/source/xnet/keras-frcnn/.gitignore
--'  3  4  ~/source/xnet/keras-frcnn/.gitignore
--'  3  4  ~/source/xnet/keras-frcnn/.gitignore
--'  3  4  ~/source/xnet/keras-frcnn/.gitignore
--'  1  0  ~/source/xnet/keras-frcnn/.gitignore
--'  1  0  ~/source/xnet/keras-frcnn/.gitignore
--'  1  0  ~/source/xnet/keras-frcnn/.gitignore
--'  1  0  ~/source/xnet/keras-frcnn/.gitignore
--'  1  0  ~/source/xnet/keras-frcnn/requirements.txt
--'  1  0  ~/source/xnet/keras-frcnn/requirements.txt
--'  1  0  ~/source/xnet/keras-frcnn/requirements.txt
--'  1  0  ~/source/xnet/keras-frcnn/requirements.txt
--'  1  0  ~/source/xnet/keras-frcnn/requirements.txt
--'  1  0  ~/source/xnet/keras-frcnn/requirements.txt
--'  1  0  ~/source/xnet/keras-frcnn/requirements.txt
--'  1  0  ~/source/xnet/keras-frcnn/requirements.txt
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  287  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  290  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  4  0  ~/source/xnet/keras-frcnn/train_frcnn.py
--'  1  0  ~/source/xnet/keras-frcnn/train_frcnn.py
+-'  29  0  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  28  0  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  22  11  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  146  0  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  12  0  ~/Desktop/Change-bluntness/python/identifySelection.py
+-'  149  0  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  56  0  ~/Desktop/Change-bluntness/python/viz.py
+-'  57  0  ~/Desktop/Change-bluntness/python/viz.py
+-'  28  0  ~/Desktop/Change-bluntness/python/viz.py
+-'  1  0  ~/Desktop/Change-bluntness/python/viz.py
+-'  79  1  ~/Desktop/Change-bluntness/python/uniq.py
+-'  1  0  ~/Desktop/Change-bluntness/python/uniq.py
+-'  145  0  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  1  0  ~/Desktop/Change-bluntness/python/config.py
+-'  19  0  ~/Desktop/Change-bluntness/python/identifySelection.py
+-'  133  8  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  32  24  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  20  5  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  142  19  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  35  0  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  2  0  ~/Desktop/Change-bluntness/python/identifySelection.py
+-'  115  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  164  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  64  5  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  209  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  227  2  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  60  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  17  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  22  2  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  8  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  23  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  133  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  76  20  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/plotPercentageCorrect_perScan_selectedims.m
+-'  72  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  140  23  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  252  34  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  253  33  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  187  8  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  251  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  81  15  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  102  10  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  265  7  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  124  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  268  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  128  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  271  29  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  9  1  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  242  2  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  231  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  1  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  77  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  207  23  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  53  25  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  239  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  240  4  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  144  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  114  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  31  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  43  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  280  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  205  6  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  279  29  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  188  6  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  66  1  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  56  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  225  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  18  0  ~/Desktop/Change-bluntness/Analysis-matlab/W_theanalysis.m
+-'  11  0  ~/Desktop/Change-bluntness/Analysis-matlab/W_theanalysis.m
+-'  8  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/GetInfoAuto.m
+-'  73  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/GetInfoAuto.m
+-'  1  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/GetInfoAuto.m
+-'  946  6  ~/Desktop/Change-bluntness/Analysis-matlab/NERD_tree_2
+-'  995  2  ~/Desktop/Change-bluntness/Analysis-matlab/NERD_tree_2
+-'  1  6  ~/Desktop/Change-bluntness/Analysis-matlab/NERD_tree_2
+-'  946  6  ~/Desktop/Change-bluntness/Analysis-matlab/NERD_tree_2
+-'  995  2  ~/Desktop/Change-bluntness/Analysis-matlab/NERD_tree_2
+-'  1  6  ~/Desktop/Change-bluntness/Analysis-matlab/NERD_tree_2
+-'  47  25  ~/.dotfiles/vim/vimrc
+-'  60  0  ~/.dotfiles/vim/vimrc
+-'  58  24  ~/.dotfiles/vim/vimrc
+-'  29  0  ~/.dotfiles/bashx/bashrc
+-'  1  0  ~/Desktop/Change-bluntness/python/imgn_change.py
+-'  222  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  16  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/plotPercentageCorrect_perScan_selectedims.m
+-'  82  4  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/plotPercentageCorrect_perScan_selectedims.m
+-'  147  0  ~/Desktop/Change-bluntness/Analysis-matlab/W_theanalysis.m
+-'  12  5  ~/Desktop/Change-bluntness/Analysis-matlab/NERD_tree_2
+-'  115  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  164  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  64  5  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  209  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  227  2  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  60  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+-'  17  0  ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
 
 # History of marks within files (newest to oldest):
 
-> ~/.dotfiles/.gitignore
-	"	4	11
-	^	4	12
-	.	4	11
-	+	4	11
-
 > ~/.dotfiles/vim/vimrc
+	"	36	0
+	^	77	13
+	.	48	0
+	+	5	14
+	+	5	81
+	+	5	0
+	+	58	1
+	+	59	1
+	+	67	24
+	+	78	9
+	+	77	12
+	+	78	0
+	+	67	0
+	+	48	0
+	j	30	0
+
+> ~/.dotfiles/.gitignore
+	"	6	0
+	^	6	9
+	.	6	8
+	+	4	11
+	+	7	0
+	+	5	10
+	+	6	8
+
+> ~/Desktop/Change-bluntness/python/imgn_change.py
+	"	29	0
+	^	21	36
+	.	21	35
+	+	35	0
+	+	20	33
+	+	15	104
+	+	22	0
+	+	21	35
+
+> ~/Desktop/Change-bluntness/python/identifySelection.py
+	"	12	0
+	^	23	0
+	.	24	0
+	+	1	47
+	+	2	0
+	+	2	0
+	+	6	0
+	+	2	23
+	+	5	0
+	+	30	0
+	+	6	24
+	+	3	0
+	+	5	42
+	+	6	26
+	+	5	0
+	+	6	27
+	+	6	7
+	+	30	26
+	+	1	14
+	+	2	0
+	+	6	1
+	+	8	0
+	+	3	21
+	+	8	11
+	+	30	0
+	+	8	61
+	+	30	0
+	+	10	56
+	+	12	0
+	+	13	75
+	+	30	0
+	+	13	0
+	+	13	40
+	+	10	32
+	+	13	0
+	+	25	0
+	+	13	0
+	+	15	0
+	+	25	0
+	+	15	50
+	+	11	6
+	+	8	0
+	+	25	0
+	+	15	26
+	+	13	13
+	+	15	62
+	+	15	82
+	+	15	63
+	+	15	9
+	+	17	22
+	+	18	25
+	+	30	0
+	+	25	27
+	+	10	0
+	+	21	27
+	+	20	49
+	+	21	56
+	+	22	0
+	+	24	0
+	+	23	10
+	+	10	63
+	+	24	0
+
+> ~/Desktop/Change-bluntness/python/viz.py
+	"	56	0
+
+> ~/Desktop/Change-bluntness/python/uniq.py
+	"	79	1
+
+> ~/Desktop/Change-bluntness/python/config.py
 	"	1	0
 
-> ~/.dotfiles/vim/vimrc
-	"	69	0
-	^	67	2
-	.	67	1
-	+	70	1
-	+	67	1
+> ~/Desktop/Change-bluntness/Analysis-matlab/W_theanalysis.m
+	"	257	0
+	^	227	25
+	.	227	24
+	+	268	64
+	+	375	82
+	+	265	61
+	+	338	63
+	+	337	84
+	+	107	0
+	+	240	0
+	+	120	15
+	+	59	0
+	+	58	9
+	+	60	9
+	+	49	0
+	+	56	5
+	+	59	4
+	+	62	4
+	+	61	8
+	+	55	5
+	+	61	9
+	+	62	5
+	+	59	60
+	+	56	0
+	+	58	45
+	+	477	76
+	+	478	0
+	+	119	0
+	+	229	0
+	+	230	0
+	+	237	0
+	+	236	42
+	+	241	1
+	+	243	0
+	+	229	5
+	+	227	4
+	+	232	66
+	+	234	0
+	+	232	14
+	+	231	23
+	+	232	0
+	+	231	82
+	+	232	82
+	+	227	5
+	+	231	74
+	+	232	73
+	+	122	76
+	+	231	0
+	+	232	0
+	+	59	8
+	+	60	9
+	+	61	9
+	+	63	6
+	+	227	24
+	a	15	2
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/identifySelection.m
+	"	20	0
+	^	194	0
+	.	12	0
+	+	36	57
+	+	42	0
+	+	44	0
+	+	9	0
+	+	43	14
+	+	9	23
+	+	43	0
+	+	42	0
+	+	43	1
+	+	9	1
+	+	31	42
+	+	43	0
+	+	39	88
+	+	11	52
+	+	122	51
+	+	122	0
+	+	122	3
+	+	122	53
+	+	122	51
+	+	123	0
+	+	122	0
+	+	122	29
+	+	122	11
+	+	122	0
+	+	122	0
+	+	122	13
+	+	122	20
+	+	122	80
+	+	122	6
+	+	122	6
+	+	122	50
+	+	129	52
+	+	122	0
+	+	253	0
+	+	252	50
+	+	269	0
+	+	270	0
+	+	269	0
+	+	115	0
+	+	117	0
+	+	117	0
+	+	115	61
+	+	115	0
+	+	259	23
+	+	252	59
+	+	268	0
+	+	254	0
+	+	267	0
+	+	268	0
+	+	134	56
+	+	135	0
+	+	259	6
+	+	259	33
+	+	124	55
+	+	254	2
+	+	256	0
+	+	252	73
+	+	264	7
+	+	265	0
+	+	82	2
+	+	83	0
+	+	83	0
+	+	102	3
+	+	261	79
+	+	259	0
+	+	258	0
+	+	253	2
+	+	252	60
+	+	134	0
+	+	116	0
+	+	119	0
+	+	118	0
+	+	118	0
+	+	116	25
+	+	252	34
+	+	115	0
+	+	188	0
+	+	117	2
+	+	116	5
+	+	23	0
+	+	17	51
+	+	23	0
+	+	17	0
+	+	39	19
+	+	38	7
+	+	39	0
+	+	39	84
+	+	39	0
+	+	264	21
+	+	116	4
+	+	119	0
+	+	115	0
+	+	31	0
+	+	32	44
+	+	64	5
+	+	139	32
+	+	201	0
+	+	193	0
+	+	194	0
+	+	12	0
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/plotPercentageCorrect_perScan_selectedims.m
+	"	66	24
+	.	52	14
+	+	52	14
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/rmMakePredictions_perScan_rotate.m
+	"	48	0
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/W_theanalysis.mm
+	"	122	0
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/NERD_tree_1
+	"	25	5
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> /usr/share/vim/vim74/doc/options.txt.gz
+	"	5792	23
+	.	8306	0
+	+	8306	0
+
+> ~/workspace2banner
+	"	10	0
+	.	10	1
+	+	12	65
+	+	10	8
+	+	11	7
+	+	8	11
+	+	2	0
+	+	8	26
+	+	12	0
+	+	8	0
+	+	7	0
+	+	1	0
+	+	10	9
+	+	11	0
+	+	11	0
+	+	12	0
+	+	10	1
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/presentationNotes.md
+	"	5	0
+	^	1	2
+	.	2	0
+	+	13	1
+	+	14	1
+	+	15	1
+	+	16	1
+	+	17	1
+	+	18	1
+	+	19	1
+	+	20	0
+	+	13	16
+	+	13	0
+	+	20	0
+	+	12	0
+	+	10	0
+	+	9	0
+	+	8	0
+	+	7	0
+	+	6	0
+	+	5	0
+	+	2	0
+	+	3	0
+	+	4	0
+	+	10	16
+	+	10	19
+	+	2	0
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/presentationNotes
+	"	1	1
+	^	1	24
+	.	1	1
+	+	20	0
+	+	20	0
+	+	12	16
+	+	20	0
+	+	12	0
+	+	20	0
+	+	20	0
+	+	20	0
+	+	20	0
+	+	20	0
+	+	20	0
+	+	20	0
+	+	20	0
+	+	20	0
+	+	12	0
+	+	12	0
+	+	12	22
+	+	12	0
+	+	12	38
+	+	13	0
+	+	13	0
+	+	12	42
+	+	12	0
+	+	12	0
+	+	12	40
+	+	12	37
+	+	12	37
+	+	12	41
+	+	12	0
+	+	1	0
+	+	12	41
+	+	13	0
+	+	12	0
+	+	12	0
+	+	12	56
+	+	12	0
+	+	1	24
+	+	2	24
+	+	3	24
+	+	4	24
+	+	5	24
+	+	6	24
+	+	7	24
+	+	8	24
+	+	9	24
+	+	11	24
+	+	12	0
+	+	15	40
+	+	12	0
+	+	11	0
+	+	10	0
+	+	20	0
+	+	11	42
+	+	1	40
+	+	1	63
+	+	2	0
+	+	1	23
+	+	2	0
+	+	1	1
+
+> ~/.dotfiles/bashx/bashrc
+	"	29	0
+	^	29	1
+	.	29	0
+	+	30	9
+	+	19	0
+	+	18	0
+	+	30	0
+	+	29	0
+
+> ~/.dotfiles/vim/vimrc-after
+	"	20	0
+	.	9	0
+	+	2	15
+	+	9	0
+	+	9	0
+
+> ~/.dotfiles/bashx/bashenv
+	"	15	40
+	^	15	41
+	.	15	40
+	+	2	0
+	+	13	24
+	+	14	28
+	+	15	40
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/__Tag_List__
+	"	1	0
+	.	1	0
+	+	20	0
+	+	20	0
+	+	19	0
+	+	19	0
+	+	18	0
+	+	3	0
+	+	2	0
+	+	1	0
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/NERD_tree_2
+	"	12	5
+	.	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/dataPredictions_rotated.mat
+	"	1	0
+
+> ~/.fzf/install
+	"	73	4
+
+> ~/.ssh/id_rsa_github.pub
+	"	1	0
+
+> ~/.ssh/id_rsa_github
+	"	5	0
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/analysis_wietske/GetInfoAuto.m
+	"	8	0
+
+> /usr/share/vim/vim74/doc/syntax.txt.gz
+	"	4385	0
+	.	5218	0
+	+	5218	0
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/NERD_tree_3
+	"	18	0
+	.	1	0
+	+	1	0
+	+	1	0
+
+> ~/.dotfiles/vim/colors/mrkn256.vim
+	"	32	0
+
+> ~/.dotfiles/vim/colors/Slate.vim
+	"	6	0
+	.	1	0
+	+	1	0
+
+> ~/.dotfiles/vim/vim
+	"	1	0
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/identifyRotation.m
+	"	26	0
+
+> ~/Desktop/Change-bluntness/Analysis-matlab/detect_change.m
+	"	174	0
+
+> /usr/share/vim/vim74/doc/usr_05.txt.gz
+	"	273	30
+	.	625	0
+	+	625	0
+
+> /usr/share/vim/vim74/syntax/matlab.vim
+	"	65	0
+
+> ~/Desktop/Change-bluntness/.gitignore
+	"	10	4
+	^	10	5
+	.	10	4
+	+	10	4
 
 > ~/.profile
 	*	1565882015	0
@@ -897,132 +1529,3 @@ $
 > ~/xnet/config.pickle
 	*	1564241674	0
 	"	6	0
-
-> ~/.config/vim/vim-colorschemes/README.md
-	*	1564237044	0
-	"	12	0
-
-> ~/.config/vim/vim-colorschemes/scripts/toremove2
-	*	1564236925	0
-	"	26	0
-
-> ~/.config/vim/vim-colorschemes/scripts/toremove
-	*	1564236916	0
-	"	5	0
-
-> ~/.config/vim/vim-colorschemes/scripts/README
-	*	1564236899	0
-	"	2	0
-
-> ~/.config/zsh/zshrc
-	*	1564233855	0
-	"	38	0
-
-> /mnt/data1/maccetto/temp/vimrc
-	*	1564231951	0
-	"	81	0
-
-> ~/.config/zsh/zprofile
-	*	1564230984	0
-	"	1	0
-
-> ~/.viminfo
-	*	1564230635	0
-	"	4	0
-
-> ~/.tmux.conf
-	*	1564229804	0
-	"	1	40
-	^	1	41
-	.	1	40
-	+	1	40
-
-> ~/p10k-lean.zsh
-	*	1564229242	0
-	"	298	2
-	^	48	6
-	.	48	6
-	+	48	6
-
-> ~/.zsh/zshrc
-	*	1564228899	0
-	"	5	14
-	^	5	15
-	.	5	14
-	+	39	0
-	+	37	42
-	+	42	0
-	+	6	0
-	+	4	14
-	+	5	14
-
-> ~/.tmux
-	*	1564228839	0
-	"	1	0
-
-> ~/.zsh/.zshrc
-	*	1564228353	0
-	"	3	34
-	^	3	35
-	.	4	0
-	+	4	19
-	+	3	35
-	+	4	0
-
-> ~/.zsh/.bashrc
-	*	1564228344	0
-	"	1	0
-
-> ~/powerlevel10k/prompt_powerlevel10k_setup
-	*	1564227460	0
-	"	10	0
-
-> ~/.zsh/.zshenv
-	*	1564227149	0
-	"	33	37
-	^	33	38
-	.	34	0
-	+	34	0
-
-> ~/.zsh/zshenv
-	*	1564226464	0
-	"	8	11
-	^	8	12
-	.	8	11
-	+	30	18
-	+	31	1
-	+	32	1
-	+	23	1
-	+	26	1
-	+	19	0
-	+	16	1
-	+	11	0
-	+	13	1
-	+	8	11
-
-> ~/.zsh/zprofile
-	*	1564226448	0
-	"	1	0
-
-> ~/.zsh/zlogin
-	*	1564226446	0
-	"	1	0
-
-> ~/.zsh/.zprofile
-	*	1564226087	0
-	"	1	0
-
-> ~/.zsh/defaultrc
-	*	1564225275	0
-	"	1	0
-
-> ~/.zsh/zcompdump
-	*	1564225199	0
-	"	1746	0
-
-> ~/.zsh/.zcompdump
-	*	1564225189	0
-	"	1725	0
-
-> ~/.config/vim/something
-	"	1	0

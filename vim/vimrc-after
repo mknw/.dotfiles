@@ -1,5 +1,5 @@
 " font and display settings
-colorscheme molokai_dark
+colorscheme vice
 highlight Comment cterm=bold
 set relativenumber
 set number

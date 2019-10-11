@@ -2,3 +2,5 @@ zsh/zhistory
 zsh/zfunctions/*
 zsh/.zcompdump
 vim/bundle/*
+vim/backup/
+vim/swap/
