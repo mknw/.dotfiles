@@ -38,4 +38,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # if [[ $TILIX_ID ]]; then
 #         source /etc/profile.d/vte.sh
 # fi
-
+# OWS=(Monday Tuesday Wednesday Thursday Friday Saturday Sunday)
+# echo -n -e "\033[1m`figlet -f smslant Ubuntu $(lsb_release --release | cut -f2)`\033[0m" | sed -e 's/^/ /' | lolcat
+# echo " Welcome back, $USER! Today is ${OWS[$(date +%u)]}, $(date +%d/%m)." | lolcat
