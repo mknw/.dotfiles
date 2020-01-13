@@ -24,6 +24,7 @@ alias appjoast="ssh maccetto@app.joascantech.com"
 alias joast="ssh maccetto@joascantech.com"
 alias f-joast='ssh -t maccetto@joascantech.com ssh maccetto@app.joascantech.com'
 alias spinoza="ssh accetto@login-01.spinozacentre.nl"
+alias das5="ssh -t mao540@ssh.data.vu.nl ssh fs0.das5.cs.vu.nl"
 # alias pleasetlmgr="sudo /usr/local/texlive/2019/bin/x86_64-linux/tlmgr" 
 alias clvimswp='rm ~/.config/vim/swap/*'
 alias tmux="tmux -f ~/.dotfiles/tmux/tmux.conf"
@@ -31,18 +32,19 @@ alias reload="exec /bin/zsh -l"
 alias br="~/scripts/brightness" # takes an int argument between 0 and 30 (brightness level)
 alias lastcmd="fc -n -1" # changing intereger returns N last commands. Command allows editing before being issued.
 alias man-flash="~/scripts/man-flashcard"
+alias speaker="~/scripts/connectSpeaker.sh"
 
 alias ls="ls --color=auto"
 alias ll="ls -l"
-alias l.="ls -a"
+alias l.="ls -l -Ad .????*"
 alias la="ls -la"
 alias lst="echo 'Showing most recent ctime on top:\n------------------' && ls -lt -c" # 
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
-alias mkdir="mkdir -pv"
-alias diff='colordiff'
+alias mkdirp="mkdir -pv"
+# alias diff='colordiff' # don't alias original commands. 
 alias path='echo -e ${PATH//:/\\n}'
 
 # controll cpu performance
@@ -50,6 +52,9 @@ alias listgovernors="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_
 alias governor="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 alias performance="echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 alias powersave="echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+
+# functions
+highlight () { grep --color -E "$1|$" $2 ; }
 
 # # python shtuff
 export PYTHONPATH="~/.local/lib/python3.7/site-packages:$PYTHONPATH"
