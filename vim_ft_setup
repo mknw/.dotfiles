@@ -1,8 +1,31 @@
-#!/bin/zsh
+#!/bin/bash
 # At the (bourne) shell prompt
-mkdir -p ~/.dotfiles/vim/after/ftplugin
-rm ~/.dotfiles/vim/after/ftplugin/*
-for file in /usr/share/vim/vim80/ftplugin/*.vim
-do
-    ln -s ~/.dotfiles/vim/vimrc-after ~/.dotfiles/vim/after/ftplugin/`basename $file`
-done
+VIM_FTPLUGIN="$HOME/.dotfiles/vim/after/ftplugin"
+SYSTEM_VIM_FTPLUGIN="/usr/share/vim/vim74/ftplugin"
+
+# remove previously linked files.
+if [ -d $VIM_FTPLUGIN ] && [ "$(ls -A $VIM_FTPLUGIN)" ]
+then
+	PREV=$(ls $VIM_FTPLUGIN)
+	rm $VIM_FTPLUGIN/*
+	echo removed $PREV
+fi
+
+# create user vim ftplugin directory.
+if [ ! -d $VIM_FTPLUGIN ]
+then
+	mkdir -pv $VIM_FTPLUGIN
+fi
+
+# link user vim ftplugin files to custom vimrc-after.
+if [ -d $SYSTEM_VIM_FTPLUGIN ]
+then
+	for FILE in $(ls $SYSTEM_VIM_FTPLUGIN/*.vim)
+	do
+	    ln -s ~/.dotfiles/vim/vimrc-after ~/.dotfiles/vim/after/ftplugin/`basename $FILE`
+	    echo created: `basename $FILE`
+	done
+else
+	printf "\ncould not find $SYSTEM_VIM_FTPLUGIN\n"
+	printf "Check your vim version and update system vim path.\n"
+fi
