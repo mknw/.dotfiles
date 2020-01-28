@@ -1,3 +1,4 @@
+#!/bin/bash
 git_venv_prompt() {
     # Define the colors that will be used
     local blue="\[$(tput setaf 33)\]"

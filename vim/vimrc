@@ -1,6 +1,6 @@
 "
 " Get the defaults that most users want.
-source $VIMRUNTIME/defaults.vim
+" source $VIMRUNTIME/defaults.vim
 "
 "if has("vms")
 "  set nobackup		" do not keep a backup file, use versions instead
@@ -18,19 +18,22 @@ source $VIMRUNTIME/defaults.vim
 " compatible.
 " The ! means the package won't be loaded right away but when plugins are
 " loaded during initialization.
-if has('syntax') && has('eval')
-  packadd! matchit
-endif
+"if has('syntax') && has('eval')
+"  packadd! matchit
+"endif
 
 
 
 " custom paths
-set viminfo+=n~/.dotfiles/vim/viminfo
-set runtimepath+=~/.dotfiles/vim,~/.dotfiles/vim/after
-set directory=~/.dotfiles/vim/swap//,.,/var/tmp,/tmp " removed ~/tmp as 3rd to last(after .)
-set backupdir=~/.dotfiles/vim/backup//,.,~/tmp,~/
-set undodir=~/.dotfiles/vim/undo//,.
+set viminfo+=n$HOME/.dotfiles/vim/viminfo
+set runtimepath+=$HOME/.dotfiles/vim,$HOME/.dotfiles/vim/after
+set directory=$HOME/.dotfiles/vim/swap//,.,/var/tmp,/tmp " removed $HOME/tmp as 3rd to last(after .)
+set backupdir=$HOME/.dotfiles/vim/backup//,.,$HOME/tmp,$HOME/
+set undodir=$HOME/.dotfiles/vim/undo//,.
 " custom code installingen
+filetype plugin indent on
+syntax on
+set hidden
 set foldmethod=indent
 set foldlevel=99
 
@@ -55,6 +58,12 @@ filetype on
 au BufNewFile,BufRead *.py
 	\ let Tlist_Auto_Open=1
 
+" pnadoc markdown.
+augroup pandoc_syntax
+	au! BufNewFile,BufFilePre,BufRead *.md set filetype=mardkown.pandoc
+augroup END 
+
+
 " toggle taglist with F8:
 nnoremap <silent> <F8> :TlistToggle<CR>
 
@@ -64,7 +73,7 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/restore_view.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'paroxayte/vwm.vim'
+" Plug 'paroxayte/vwm.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'severin-lemaignan/vim-minimap'
