@@ -56,6 +56,6 @@ fi
 PS1="\[${BOLD}${CYAN}\]\u \[$BASE0\]at \[$CYAN\]\h \[$BASE0\]in \[$BLUE\]\w\[$BASE0\]\n\$ \[$RESET\]"
 
 
-if [ -f "$BASHX_PLUGINS/git-venv-prompt/git_venv_prompt.sh" ]; then
-		. $BASHX_PLUGINS/git_venv_prompt
+if [ -f "$BASH_PLUGINS/git_venv_prompt" ]; then
+		. $BASH_PLUGINS/git_venv_prompt
 fi
