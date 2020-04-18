@@ -24,15 +24,18 @@ alias appjoast="ssh maccetto@app.joascantech.com"
 alias joast="ssh maccetto@joascantech.com"
 alias f-joast='ssh -t maccetto@joascantech.com ssh maccetto@app.joascantech.com'
 alias spinoza="ssh accetto@login-01.spinozacentre.nl"
-alias das5="ssh -t mao540@ssh.data.vu.nl ssh fs0.das5.cs.vu.nl"
+alias dasvu="ssh -t mao540@ssh.data.vu.nl ssh fs0.das5.cs.vu.nl"
+alias das="ssh mao540@fs0.das5.cs.vu.nl"
+alias dasvuy="ssh -tY mao540@ssh.data.vu.nl ssh -Y fs0.das5.cs.vu.nl"
 # alias pleasetlmgr="sudo /usr/local/texlive/2019/bin/x86_64-linux/tlmgr" 
 alias clvimswp='rm ~/.config/vim/swap/*'
 alias tmux="tmux -f ~/.dotfiles/tmux/tmux.conf"
 alias reload="exec /bin/zsh -l"
 alias br="~/scripts/brightness" # takes an int argument between 0 and 30 (brightness level)
-alias lastcmd="fc -n -1" # changing intereger returns N last commands. Command allows editing before being issued.
+alias lastcmd="fc -n -1" # changing integer returns N last commands. Command allows editing before being issued.
 alias man-flash="~/scripts/man-flashcard"
 alias speaker="~/scripts/connectSpeaker.sh"
+alias restartwifi='service network-manager restart'
 
 alias ls="ls --color=auto"
 alias ll="ls -l"
@@ -53,11 +56,15 @@ alias governor="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 alias performance="echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 alias powersave="echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 
+# temporary
+alias activenvtsw="source ~/.venv/tswvenv37/bin/activate"
+
 # functions
 highlight () { grep --color -E "$1|$" $2 ; }
 
 # # python shtuff
-export PYTHONPATH="~/.local/lib/python3.7/site-packages:$PYTHONPATH"
+[[ -z $PYTHONPATH ]] && export PYTHONPATH="~/.local/lib/python3.7/site-packages:$PYTHONPATH"
+
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # enable Qt Xwayland comms.
@@ -70,4 +77,4 @@ fpath=( "$ZDOTDIR/zfunctions" $fpath )
 path=( "$HOME/.local/bin" $path )
 path=( $path "$HOME/scripts/" )
 path+=/usr/local/texlive/2019/bin/x86_64-linux
-export PATH
+# export PATH

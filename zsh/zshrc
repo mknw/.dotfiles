@@ -1,8 +1,15 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.dotfiles/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Set up the prompt
 
 autoload -Uz promptinit; promptinit
 prompt powerlevel10k
-prompt p10klean
+# prompt p10klean
 
 setopt histignorealldups sharehistory
 
@@ -41,3 +48,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # OWS=(Monday Tuesday Wednesday Thursday Friday Saturday Sunday)
 # echo -n -e "\033[1m`figlet -f smslant Ubuntu $(lsb_release --release | cut -f2)`\033[0m" | sed -e 's/^/ /' | lolcat
 # echo " Welcome back, $USER! Today is ${OWS[$(date +%u)]}, $(date +%d/%m)." | lolcat
+
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
+[[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh

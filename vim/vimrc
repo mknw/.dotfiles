@@ -74,4 +74,5 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()

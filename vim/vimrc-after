@@ -3,7 +3,10 @@
 
 
 " font and display settings
-colorscheme molokai_dark
+syntax enable
+set background=dark
+colorscheme solarized
+
 highlight Comment cterm=bold
 set relativenumber
 set number
