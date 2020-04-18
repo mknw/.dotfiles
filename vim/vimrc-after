@@ -3,7 +3,9 @@
 
 
 " font and display settings
-colorscheme molokai_dark
+syntax enable
+set background=dark
+colorscheme solarized
 highlight Comment cterm=bold
 set relativenumber
 set number
@@ -16,7 +18,7 @@ set t_Co=256
 set autoindent noexpandtab tabstop=2 shiftwidth=2 softtabstop=-1
 
 autocmd BufNewFile,BufRead *.py
-	\ set textwidth=79 fileformat=unix encoding=utf-8
+	\ set textwidth=99 fileformat=unix encoding=utf-8
 
 " search parameters
 set hls " short for hlsearch
@@ -25,4 +27,5 @@ set hls " short for hlsearch
 " What is essential is invisible to the eye"
 set list
 set listchars=eol:⏎,tab:⟩\ ,trail:␠,nbsp:⎵,extends:>,precedes:<
-
+" make file option setting possible:
+set modeline

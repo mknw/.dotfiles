@@ -29,3 +29,8 @@ else
 	printf "\ncould not find $SYSTEM_VIM_FTPLUGIN\n"
 	printf "Check your vim version and update system vim path.\n"
 fi
+
+# TODO: add $HOME/.dotfiles/vim/ 
+# - swap
+# - backup
+# - undo

@@ -24,9 +24,10 @@
 
 
 
-" custom paths
+" custom paths. 
 set viminfo+=n$HOME/.dotfiles/vim/viminfo
 set runtimepath+=$HOME/.dotfiles/vim,$HOME/.dotfiles/vim/after
+" you might have to add the following dirs manually.
 set directory=$HOME/.dotfiles/vim/swap//,.,/var/tmp,/tmp " removed $HOME/tmp as 3rd to last(after .)
 set backupdir=$HOME/.dotfiles/vim/backup//,.,$HOME/tmp,$HOME/
 set undodir=$HOME/.dotfiles/vim/undo//,.
@@ -77,4 +78,5 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'severin-lemaignan/vim-minimap'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
