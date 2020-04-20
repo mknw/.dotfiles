@@ -12,9 +12,10 @@ EDITOR="vim"
 # vim initialization
 export MYVIMRC="~/.dotfiles/vim/vimrc"
 export VIMINIT="source $MYVIMRC"
+export ZDIR_COLORS="$HOME/.dir_colors"
 
 
-# brightnesalias br="/home/mknw/scripts/brightness" # to be changed to script
+# brightness alias br="/home/mknw/scripts/brightness" # to be changed to script
 
 # run gotop (will have to go in /usr/bin at some point)
 alias gotop="~/scripts/gotop -b"
@@ -37,8 +38,8 @@ alias man-flash="~/scripts/man-flashcard"
 alias speaker="~/scripts/connectSpeaker.sh"
 alias restartwifi='service network-manager restart'
 
-alias ls="ls --color=auto"
-alias ll="ls -l"
+alias ls="ls --color"
+alias ll="ls -lG"
 alias l.="ls -l -Ad .????*"
 alias la="ls -la"
 alias lst="echo 'Showing most recent ctime on top:\n------------------' && ls -lt -c" # 
@@ -61,6 +62,7 @@ alias activenvtsw="source ~/.venv/tswvenv37/bin/activate"
 
 # functions
 highlight () { grep --color -E "$1|$" $2 ; }
+palette() {for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done}
 
 # # python shtuff
 [[ -z $PYTHONPATH ]] && export PYTHONPATH="~/.local/lib/python3.7/site-packages:$PYTHONPATH"
@@ -78,3 +80,7 @@ path=( "$HOME/.local/bin" $path )
 path=( $path "$HOME/scripts/" )
 path+=/usr/local/texlive/2019/bin/x86_64-linux
 # export PATH
+# do we need this?
+#
+# functions
+#
