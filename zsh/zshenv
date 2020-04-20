@@ -12,6 +12,7 @@ EDITOR="vim"
 # vim initialization
 export MYVIMRC="~/.dotfiles/vim/vimrc"
 export VIMINIT="source $MYVIMRC"
+POWERLEVEL9K_INSTALLATION_DIR="$HOME/.dotfiles/prompts/powerlevel10k"
 
 
 # brightnesalias br="/home/mknw/scripts/brightness" # to be changed to script
@@ -20,9 +21,6 @@ export VIMINIT="source $MYVIMRC"
 # alias gotop="~/scripts/gotop -b"
 #
 # ssh
-alias appjoast="ssh maccetto@app.joascantech.com"
-alias joast="ssh maccetto@joascantech.com"
-alias f-joast='ssh -t maccetto@joascantech.com ssh maccetto@app.joascantech.com'
 
 alias ls="ls --color=auto"
 # alias pleasetlmgr="sudo /usr/local/texlive/2019/bin/x86_64-linux/tlmgr" 
@@ -30,7 +28,7 @@ alias clvimswp='rm ~/.config/vim/swap/*'
 alias tmux="tmux -f ~/.dotfiles/tmux/tmux.conf"
 alias reload="exec /bin/zsh -l"
 
-# # python shtuff
+# # python stuff
 # export PYTHONPATH="$PYTHONPATH:~/.local/lib/python3.6/site-packages"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 # #

@@ -2,7 +2,7 @@
 
 autoload -Uz promptinit; promptinit
 prompt powerlevel10k
-prompt p10klean
+# prompt p10klean
 
 setopt histignorealldups sharehistory
 
