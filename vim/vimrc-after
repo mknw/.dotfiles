@@ -3,10 +3,6 @@
 
 
 " font and display settings
-syntax enable
-set background=dark
-colorscheme solarized
-
 highlight Comment cterm=bold
 set relativenumber
 set number

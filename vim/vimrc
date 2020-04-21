@@ -23,16 +23,21 @@ if has('syntax') && has('eval')
 endif
 
 
-
 " custom paths
-set viminfo+=n~/.dotfiles/vim/viminfo
 set runtimepath+=~/.dotfiles/vim,~/.dotfiles/vim/after
+set viminfo+=n~/.dotfiles/vim/viminfo
 set directory=~/.dotfiles/vim/swap//,.,/var/tmp,/tmp " removed ~/tmp as 3rd to last(after .)
 set backupdir=~/.dotfiles/vim/backup//,.,~/tmp,~/
 set undodir=~/.dotfiles/vim/undo//,.
 " custom code installingen
 filetype plugin indent on " also for Tlist
-syntax on
+
+" coloscheme
+let python_highlight_all=1
+syntax enable
+set background=dark
+colorscheme solarized
+
 set hidden
 set foldmethod=indent
 set foldlevel=99
@@ -48,7 +53,7 @@ endif
 let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
 
-
+" solarized theme
 " (from taglist docs) taglist can find universal-ctags by setting:
 " Tlist_Ctags_Cmd='path/to/binary'
 "
@@ -74,5 +79,5 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 call plug#end()
