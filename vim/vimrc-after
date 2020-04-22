@@ -1,24 +1,29 @@
 " To link ~/.dotfiles/vim/after/ftplugin/* to ~/.dotfiles/vim/vimrc-after:
 " run ~/.dotfiles/vim_ft_setup
 
-
-" font and display settings
-syntax enable
-set background=dark
-colorscheme solarized
 highlight Comment cterm=bold
 set relativenumber
 set number
 " powerline settings
 " set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 set laststatus=2
-set t_Co=256
+set t_Co=16
 
-" let's get indentation right once and for all
+" legacy, tested, indentation. 
+" set autoindent noexpandtab tabstop=2 shiftwidth=2 softtabstop=-1
+
+" experimental indent. 
+" notes :
 set autoindent noexpandtab tabstop=2 shiftwidth=2 softtabstop=-1
+set cindent 
+set preserveindent
+" set cino=+10 " add N chars before continuation line. See :help cino-+
+setl cino=(0,W10,+10
 
 autocmd BufNewFile,BufRead *.py
 	\ set textwidth=99 fileformat=unix encoding=utf-8
+
+
 
 " search parameters
 set hls " short for hlsearch

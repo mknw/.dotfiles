@@ -150,6 +150,18 @@ tmuxjump () {
 	fi
 }
 
+sendvu () {
+	if [ -z "$1" ]; then
+		echo -e "Usage:\tsendvu <dir to transfer>"
+		echo "actual command:"
+		echo -e "\trsync -avzh --progress --exclude='model.pth.tar' ./<dir to transfer> mao540@ssh.data.vu.nl:~/results"
+	else 
+		if [ -d $1 ]; then
+		rsync -avzh --progress --exclude='model.pth.tar' "./$1" "mao540@ssh.data.vu.nl:~/results"
+	fi
+fi
+}
+
 
 # export DEBUGNUMMER=1
 

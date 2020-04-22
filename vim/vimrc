@@ -25,15 +25,19 @@
 
 
 " custom paths. 
-set viminfo+=n$HOME/.dotfiles/vim/viminfo
 set runtimepath+=$HOME/.dotfiles/vim,$HOME/.dotfiles/vim/after
+set viminfo+=n$HOME/.dotfiles/vim/viminfo
 " you might have to add the following dirs manually.
 set directory=$HOME/.dotfiles/vim/swap//,.,/var/tmp,/tmp " removed $HOME/tmp as 3rd to last(after .)
 set backupdir=$HOME/.dotfiles/vim/backup//,.,$HOME/tmp,$HOME/
 set undodir=$HOME/.dotfiles/vim/undo//,.
 " custom code installingen
 filetype plugin indent on
-syntax on
+
+let python_highlight_all=1
+syntax enable
+set background=dark
+colorscheme solarized
 set hidden
 set foldmethod=indent
 set foldlevel=99
@@ -51,7 +55,6 @@ let g:airline_theme='deus'
 
 
 """ TagList plugin:
-filetype on
 " (from taglist docs) taglist can find universal-ctags by setting:
 " Tlist_Ctags_Cmd='path/to/binary'
 "
@@ -78,5 +81,5 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'severin-lemaignan/vim-minimap'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 call plug#end()
