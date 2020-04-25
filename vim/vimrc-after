@@ -10,15 +10,16 @@ set laststatus=2
 set t_Co=16
 
 " legacy, tested, indentation. 
-" set autoindent noexpandtab tabstop=2 shiftwidth=2 softtabstop=-1
+set autoindent noexpandtab tabstop=2 shiftwidth=2 softtabstop=-1
 
 " experimental indent. 
 " notes :
-set autoindent noexpandtab tabstop=2 shiftwidth=2 softtabstop=-1
-set cindent 
+" set autoindent noexpandtab tabstop=2 shiftwidth=2 softtabstop=-1
+" set cindent 
+" set copyindent
 set preserveindent
 " set cino=+10 " add N chars before continuation line. See :help cino-+
-setl cino=(0,W10,+10
+setl cino=(10
 
 autocmd BufNewFile,BufRead *.py
 	\ set textwidth=99 fileformat=unix encoding=utf-8

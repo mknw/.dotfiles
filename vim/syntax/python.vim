@@ -159,7 +159,7 @@ syn keyword pythonConditional   if elif else
 syn keyword pythonImport        import
 syn keyword pythonException     try except finally
 syn keyword pythonOperator      and in is not or
-syn keyword pythonBoolean       True False
+" syn keyword pythonBoolean       True False
 
 syn match pythonStatement   "\<yield\>" display
 syn match pythonImport      "\<from\>" display
@@ -536,7 +536,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonHexNumber        Number
   HiLink pythonOctNumber        Number
   HiLink pythonBinNumber        Number
-  HiLink pythonFloat            Float
+  HiLink pythonFloat            Number
   HiLink pythonNumberError      Error
   HiLink pythonOctError         Error
   HiLink pythonHexError         Error

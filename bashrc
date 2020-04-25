@@ -55,6 +55,7 @@ alias path="echo -e ${PATH//:/\\\\n}" # Watch out: the \escape is escaped...
 alias sinfonf="sinfo -o '%40N %40f'"
 alias sinfodiag="sinfo -o '%30N %30f %15G %12O %4c %9z %w'"
 alias presll="preserve -llist | grep mao540"
+alias cleananalysis='rm -rI !(x.png|z.png|zlatent_mean_std_Z.pkl|z.pkl|model.pth.tar)'
 # alias sdebug='srun --job-name=realnpv_mnist --output=realnvp.log --time=00:30:00 -N 1 -C TitanX --gres=gpu:1'
 
 
@@ -152,14 +153,67 @@ tmuxjump () {
 
 sendvu () {
 	if [ -z "$1" ]; then
-		echo -e "Usage:\tsendvu <dir to transfer>"
-		echo "actual command:"
-		echo -e "\trsync -avzh --progress --exclude='model.pth.tar' ./<dir to transfer> mao540@ssh.data.vu.nl:~/results"
-	else 
-		if [ -d $1 ]; then
-		rsync -avzh --progress --exclude='model.pth.tar' "./$1" "mao540@ssh.data.vu.nl:~/results"
+		echo "Send folder (or folders containing the given version specifier) to ssh.data.vu.nl"
+		echo -e "\nUsage:\t\tsendvu <dir-to-transfer>"
+		echo -e "or: \t\tsendvu <version-specifier>"
+		echo -e "\nactual command:"
+		echo -e "\trsync -avzh --progress --exclude='model.pth.tar' ./<dir-to-transfer> mao540@ssh.data.vu.nl:~/results"
+		echo -e "\nNOTE: If version-specifier (e.g. \"V-0.3\") is provided,"
+		echo -e "rsync will be called for each of the "
+		echo -e "folder containing the required specifier."
+	elif [ -d "$1" ]; then
+			rsync -avzh --progress --exclude='model.pth.tar' \
+			            --exclude='zlatent_mean_std_Z.pkl' --exclude='z.pkl' \
+			            "./$1" "mao540@ssh.data.vu.nl:~/results"
+	elif [ "${1:0:2}" = "V-" ]; then
+		FP_VMARKERS=$(find . -name 'version')
+		for FP in $FP_VMARKERS; do
+			while IFS='' read -r line; do
+				if [ "$line" = "$1" ]; then
+					echo $FP
+					echo -n "Matched: $line"
+					echo " Sending to VU's servers..."
+					rsync -avzh --progress --exclude='model.pth.tar' \
+						    --exclude='zlatent_mean_std_Z.pkl' --exclude='z.pkl' \
+								"${FP%/version}" "mao540@ssh.data.vu.nl:~/results"
+				fi
+			done < "$FP"
+		done
 	fi
-fi
+}
+
+
+findver () {
+	if [ -z "$1" ]; then
+		find . -name 'version' -exec sh -c 'echo "$0: $(cat $0)"' {} \;
+	else
+		FP_VMARKERS=$(find . -name 'version')
+		for FP in $FP_VMARKERS; do
+			while IFS='' read -r line; do
+				if [ "$line" = "$1" ]; then
+					echo $FP
+					echo "Matched: $line"
+				fi
+			done < "$FP"
+		done
+	fi
+}
+
+listver () {
+	if [ -z "$1" ]; then
+		find . -name 'version' -exec sh -c 'echo "$0 : $(cat $0)"; ls --color ${0%/version}' {} \;
+	else
+		FP_VMARKERS=$(find . -name 'version')
+		for FP in $FP_VMARKERS; do
+
+			while IFS='' read -r line; do
+				if [ "$line" = "$1" ]; then
+					echo "$FP Matched: $line"
+					ls --color ${FP%version}
+				fi
+			done < "$FP"
+	done
+	fi
 }
 
 

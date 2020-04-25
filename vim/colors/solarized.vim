@@ -542,10 +542,10 @@ exe "hi! Comment"        .s:fmt_ital   .s:fg_base01 .s:bg_none
 "       *Comment         any comment
 
 exe "hi! Constant"       .s:fmt_none   .s:fg_cyan   .s:bg_none
+exe "hi! String"         .s:fmt_none   .s:fg_base1    .s:bg_none
+exe "hi! Boolean"        .s:fmt_none   .s:fg_magenta  .s:bg_none 
+exe "hi! Float"          .s:fmt_none   .s:fg_magenta  .s:bg_none
 "       *Constant        any constant
-" exe "hi! String"         .s:fmt_none .s:fg_base1    .s:bg_none
-exe "hi! Boolean"        .s:fmt_none .s:fg_magenta  .s:bg_none 
-exe "hi! Float"          .s:fmt_none .s:fg_magenta  .s:bg_none
 "        String          a string constant: "this is a string"
 "        Character       a character constant: 'c', '\n'
 "        Number          a number constant: 234, 0xff
@@ -857,18 +857,20 @@ exe "hi! pythonBuiltin"      . s:fg_magenta .s:bg_back .s:fmt_bold
 exe "hi! pythonOperator"     . s:fg_orange  .s:bg_back .s:fmt_bold
 exe "hi! pythonNumber"       . s:fg_yellow  .s:bg_back .s:fmt_none
 exe "hi! pythonFloat"        . s:fg_magenta .s:bg_back .s:fmt_none
-exe "hi! pythonBoolean"      . s:fg_magenta .s:bg_back .s:fmt_none
 exe "hi! pythonString"       . s:fg_cyan    .s:bg_back .s:fmt_none
 exe "hi! pythonRawString"    . s:fg_base1   .s:bg_back .s:fmt_undr
 exe "hi! pythonStatement"    . s:fg_yellow  .s:bg_back .s:fmt_none
-exe "hi! pythonConditional"  . s:fg_cyan    .s:bg_back .s:fmt_none
+exe "hi! pythonConditional"  . s:fg_orange  .s:bg_back .s:fmt_none
 exe "hi! pythonRepeat"       . s:fg_cyan    .s:bg_back .s:fmt_none
-exe "hi! pythonExceptions"   . s:fg_orange  .s:bg_back .s:fmt_none
-exe "hi! pythonSpaceError"   . s:fg_base1   .s:bg_orange .s:fmt_none
+" exe "hi! pythonExceptions"   . s:fg_orange  .s:bg_back .s:fmt_revr
+exe "hi! pythonExceptions   ctermfg=124 " .s:fmt_revr .s:fmt_undr
+exe "hi! pythonSpaceError   ctermbg=052"   . s:fg_base1   .s:fmt_none
 exe "hi! pythonDecorator"    . s:fg_base2   .s:bg_back .s:fmt_none
-exe "hi! pythonInclude"      . s:fg_base01  .s:bg_back .s:fmt_ital
+exe "hi! pythonInclude"      . s:fg_magenta .s:bg_back .s:fmt_ital
 exe "hi! pythonDoctest"      . s:fg_base01  .s:bg_back .s:fmt_none
 exe "hi! pythonFunction"     . s:fg_green   .s:bg_back   .s:fmt_none
+" exe "hi! pythonBoolean"      . s:fg_magenta .s:bg_back .s:fmt_none
+exe "hi! pythonBoolean     ctermfg=088 " .s:fmt_revr
 "}}}
 " pandoc markdown syntax highlighting "{{{
 " ---------------------------------------------------------------------
