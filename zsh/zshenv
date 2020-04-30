@@ -62,7 +62,6 @@ alias activenvtsw="source ~/.venv/tswvenv37/bin/activate"
 
 # functions
 highlight () { grep --color -E "$1|$" $2 ; }
-palette() {for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done}
 
 # # python shtuff
 [[ -z $PYTHONPATH ]] && export PYTHONPATH="~/.local/lib/python3.7/site-packages:$PYTHONPATH"
@@ -79,12 +78,34 @@ fpath=( "$ZDOTDIR/zfunctions" $fpath )
 path=( "$HOME/.local/bin" $path )
 path=( $path "$HOME/scripts/" )
 path+=/usr/local/texlive/2019/bin/x86_64-linux
-# export PATH
-# do we need this?
-#
-# functions
-subderma() {
+# export PATH # do we need this? # apparently not.
 
+#############
+# functions #
+#############
+
+grabvu () {
+	# grab content from VU's servers
+	echo "copying files from ssh.data.vu.nl:~/MAIP ..."
+	rsync -avzh --progress "mao540@ssh.data.vu.nl:~/results" ~/MAIP
+	echo "done."
+}
+
+# color functions
+palette() {for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done}
+
+palette_cs() {
+	for i in {0..16}; do 
+		# %K
+		# $i iteration n
+		# l:3 : n digits to show
+		# 0 : digit to prepend
+		# %K %k and %F %f seem to be matching
+		print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f";
+	done
+}
+
+subderma() {
 if [ "$1" = "1" ]; then
 for i in 00{2..8} {0{3,4,9},10}{0..7}
 	do for j in 0 1
@@ -92,11 +113,11 @@ for i in 00{2..8} {0{3,4,9},10}{0..7}
 	   done
 	done
 elif [ "$1" = "-cs" ]; then
-	echo "Showing coloscheme"
-	for i in 00{1..16}
-	do echo -e "$i \e[0;${i}mSubdermatoglyphic text\e[00m  \e[1;${i}mSubdermatoglyphic text\e[00m"
-	done
+	echo "Showing colourscheme, 16 colours"
+	palette_cs
+	# echo -e "$i \e[0;${i}mSubdermatoglyphic text\e[00m  \e[1;${i}mSubdermatoglyphic text\e[00m"
 else
+	echo "Showing 2 columns: 0 (normal) and 1 (bold)"
 	for i in 00{2..8} {0{3,4,9},10}{0..7}
 	do echo -e "$i \e[0;${i}mSubdermatoglyphic text\e[00m  \e[1;${i}mSubdermatoglyphic text\e[00m"
 	done

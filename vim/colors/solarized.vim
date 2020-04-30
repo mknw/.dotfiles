@@ -543,9 +543,6 @@ exe "hi! Comment"        .s:fmt_ital   .s:fg_base01 .s:bg_none
 
 exe "hi! Constant"       .s:fmt_none   .s:fg_cyan   .s:bg_none
 "       *Constant        any constant
-" exe "hi! String"         .s:fmt_none .s:fg_base1    .s:bg_none
-exe "hi! Boolean"        .s:fmt_none .s:fg_magenta  .s:bg_none 
-exe "hi! Float"          .s:fmt_none .s:fg_magenta  .s:bg_none
 "        String          a string constant: "this is a string"
 "        Character       a character constant: 'c', '\n'
 "        Number          a number constant: 234, 0xff
@@ -578,7 +575,7 @@ exe "hi! Type"           .s:fmt_none   .s:fg_yellow .s:bg_none
 "        Structure       struct, union, enum, etc.
 "        Typedef         A typedef
 
-exe "hi! Special"        .s:fmt_bold .s:fg_base1 .s:bg_none
+exe "hi! Special"        .s:fmt_none   .s:fg_red    .s:bg_none
 "       *Special         any special symbol
 "        SpecialChar     special character in a constant
 "        Tag             you can use CTRL-] on this
@@ -850,25 +847,6 @@ hi! link hsModuleWhereLabel  hsModuleStartLabel
 exe "hi! hsNiceOperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 exe "hi! hsniceoperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 
-"}}}
-"python highlighting "{{{
-" ---------------------------------------------------------------------
-exe "hi! pythonBuiltin"      . s:fg_magenta .s:bg_back .s:fmt_bold
-exe "hi! pythonOperator"     . s:fg_orange  .s:bg_back .s:fmt_bold
-exe "hi! pythonNumber"       . s:fg_yellow  .s:bg_back .s:fmt_none
-exe "hi! pythonFloat"        . s:fg_magenta .s:bg_back .s:fmt_none
-exe "hi! pythonBoolean"      . s:fg_magenta .s:bg_back .s:fmt_none
-exe "hi! pythonString"       . s:fg_cyan    .s:bg_back .s:fmt_none
-exe "hi! pythonRawString"    . s:fg_base1   .s:bg_back .s:fmt_undr
-exe "hi! pythonStatement"    . s:fg_yellow  .s:bg_back .s:fmt_none
-exe "hi! pythonConditional"  . s:fg_cyan    .s:bg_back .s:fmt_none
-exe "hi! pythonRepeat"       . s:fg_cyan    .s:bg_back .s:fmt_none
-exe "hi! pythonExceptions"   . s:fg_orange  .s:bg_back .s:fmt_none
-exe "hi! pythonSpaceError"   . s:fg_base1   .s:bg_orange .s:fmt_none
-exe "hi! pythonDecorator"    . s:fg_base2   .s:bg_back .s:fmt_none
-exe "hi! pythonInclude"      . s:fg_base01  .s:bg_back .s:fmt_ital
-exe "hi! pythonDoctest"      . s:fg_base01  .s:bg_back .s:fmt_none
-exe "hi! pythonFunction"     . s:fg_green   .s:bg_back   .s:fmt_none
 "}}}
 " pandoc markdown syntax highlighting "{{{
 " ---------------------------------------------------------------------

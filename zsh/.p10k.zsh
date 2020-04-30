@@ -315,17 +315,55 @@
   #   typeset -g POWERLEVEL9K_DIR_WORK_FOREGROUND=31
   #   typeset -g POWERLEVEL9K_DIR_WORK_SHORTENED_FOREGROUND=103
   #   typeset -g POWERLEVEL9K_DIR_WORK_ANCHOR_FOREGROUND=39
+  typeset -g POWERLEVEL9K_DIR_PROJECT_FOREGROUND=125
+  typeset -g POWERLEVEL9K_DIR_PROJECT_SHORTENED_FOREGROUND=125
+  typeset -g POWERLEVEL9K_DIR_PROJECT_ANCHOR_FOREGROUND=125
+
+  typeset -g POWERLEVEL9K_DIR_HOME_ANCHOR_FOREGROUND=251
+  typeset -g POWERLEVEL9K_DIR_HOME_SHORTENED_FOREGROUND=120
+  typeset -g POWERLEVEL9K_DIR_HOME_FOREGROUND=4
+
+  typeset -g POWERLEVEL9K_DIR_DOCUMENTS_FOREGROUND=186
+  typeset -g POWERLEVEL9K_DIR_DOCUMENTS_SHORTENED_FOREGROUND=186
+  typeset -g POWERLEVEL9K_DIR_DOCUMENTS_ANCHOR_FOREGROUND=186
+
+  typeset -g POWERLEVEL9K_DIR_DOWNLOADS_FOREGROUND=43
+  typeset -g POWERLEVEL9K_DIR_DOWNLOADS_SHORTENED_FOREGROUND=43
+  typeset -g POWERLEVEL9K_DIR_DOWNLOADS_ANCHOR_FOREGROUND=43
+
+  typeset -g POWERLEVEL9K_DIR_SCRIPTS_FOREGROUND=138
+  typeset -g POWERLEVEL9K_DIR_SCRIPTS_ANCHOR_FOREGROUND=138
+  typeset -g POWERLEVEL9K_DIR_SCRIPTS_SHORTENED_FOREGROUND=138
+
+  typeset -g POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=7
+  typeset -g POWERLEVEL9K_DIR_DEFAULT_SHORTENED_FOREGROUND=4
+  typeset -g POWERLEVEL9K_DIR_DEFAULT_ANCHOR_FOREGROUND=4
+
+  typeset -g POWERLEVEL9K_DIR_PICTURES_FOREGROUND=75
+  typeset -g POWERLEVEL9K_DIR_PICTURES_SHORTENED_FOREGROUND=75
+  typeset -g POWERLEVEL9K_DIR_PICTURES_ANCHOR_FOREGROUND=75
   #
+  typeset -g POWERLEVEL9K_DIR_MUSIC_FOREGROUND=164
+  typeset -g POWERLEVEL9K_DIR_MUSIC_SHORTENED_FOREGROUND=164
+  typeset -g POWERLEVEL9K_DIR_MUSIC_ANCHOR_FOREGROUND=164
+
+  typeset -g POWERLEVEL9K_DIR_DOTFILES_FOREGROUND=224
+  typeset -g POWERLEVEL9K_DIR_DOTFILES_SHORTENED_FOREGROUND=224
+  typeset -g POWERLEVEL9K_DIR_DOTFILES_ANCHOR_FOREGROUND=224
+
+
+	
   typeset -g POWERLEVEL9K_DIR_CLASSES=(
-				'~'                     HOME          ''
-				'~/Downloads(|/*)'      DOWNLOADS     '' # '' ''
-				'~/Documents(|/*)'      DOCUMENTS     ''
-				'~/scripts(|/*)'        DOWNLOADS     '' # ''
-				'~/(MAIP|Arduino|UNI|SC)(|/*)' PROJECT       '' # ''
-				'~/Music(|/*)'          MUSIC         '' # ''
-				'~/Pictures(|/*)'       PICTURES      '' # 
-				'~/Videos(|/*)'         VIDEO         '' # ''
-				'*'                     DEFAULT       '')
+				'~'                     HOME            ''
+				'~/Downloads(|/*)'      DOWNLOADS       '' # '' ''
+				'~/Documents(|/*)'      DOCUMENTS       ''
+				'~/scripts(|/*)'        SCRIPTS         '' # ''
+				'~/(MAIP|Arduino|UNI|SC)(|/*)' PROJECT  '' # ''
+				'~/Music(|/*)'          MUSIC           '' # ''
+				'~/Pictures(|/*)'       PICTURES        '' # 
+				'~/Videos(|/*)'         VIDEO           '' # ''
+				'~/.dotfiles(|/*)'      DOTFILES        '' # ﮛ
+				'*'                     DEFAULT         '')
 
   #####################################[ vcs: git status ]######################################
   # Branch icon. Set this parameter to '\uF126 ' for the popular Powerline branch icon.
