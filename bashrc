@@ -162,10 +162,15 @@ sendvu () {
 		echo -e "rsync will be called for each of the "
 		echo -e "folder containing the required specifier."
 	elif [ -d "$1" ]; then
+		echo "directory mode"
 			rsync -avzh --progress --exclude='model.pth.tar' \
 			            --exclude='zlatent_mean_std_Z.pkl' --exclude='z.pkl' \
 			            "./$1" "mao540@ssh.data.vu.nl:~/results"
+	elif [ -f "$1" ]; then
+		echo "file mode"
+		rsync -avh "./$1" "mao540@ssh.data.vu.nl:~/results"
 	elif [ "${1:0:2}" = "V-" ]; then
+		echo "bulk mode"
 		FP_VMARKERS=$(find . -name 'version')
 		for FP in $FP_VMARKERS; do
 			while IFS='' read -r line; do
