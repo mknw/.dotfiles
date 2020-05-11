@@ -1,12 +1,16 @@
 #!/bin/zsh
+#
 # At the (bourne) shell prompt
-FiletypeDir = "~/.dotfiles/vim/after/ftplugin"
+FTPDir="$HOME/.dotfiles/vim/after/ftplugin"
 
-if [ -d FiletypeDir ]; then rm -Rf FiletypeDir; fi
+if [ -d "$FTPDir" ]; then 
+	rm "$FTPDir/*"; 
+else
+	mkdir -p "$FTPDir"
+fi
 
-mkdir -p ~/.dotfiles/vim/after/ftplugin
 
-for file in /usr/share/vim/vim80/ftplugin/*.vim
-do
-    ln -s ~/.dotfiles/vim/vimrc-after ~/.dotfiles/vim/after/ftplugin/`basename $file`
+for file in /usr/share/vim/vim81/ftplugin/*.vim; do
+	echo "linking `basename $file` filetype."
+	ln -s ~/.dotfiles/vim/vimrc-after ~/.dotfiles/vim/after/ftplugin/`basename $file`
 done

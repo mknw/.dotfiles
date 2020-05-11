@@ -70,7 +70,7 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 
 call plug#begin('~/.dotfiles/vim/bundle')
 " Plug 'junegunn/seoul256'
-Plug 'vim-scripts/taglist.vim'
+" Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/restore_view.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
