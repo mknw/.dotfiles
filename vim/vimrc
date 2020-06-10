@@ -32,7 +32,7 @@ set directory=$HOME/.dotfiles/vim/swap//,.,/var/tmp,/tmp " removed $HOME/tmp as 
 set backupdir=$HOME/.dotfiles/vim/backup//,.,$HOME/tmp,$HOME/
 set undodir=$HOME/.dotfiles/vim/undo//,.
 " custom code installingen
-filetype plugin indent on
+filetype indent plugin on
 
 let python_highlight_all=1
 syntax enable
@@ -81,5 +81,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'severin-lemaignan/vim-minimap'
+" Plug 'chrisbra/Colorizer' " needs vim>=8.0
 " Plug 'altercation/vim-colors-solarized'
 call plug#end()

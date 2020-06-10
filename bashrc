@@ -1,4 +1,4 @@
-# .bashrc
+#!/usr/bin/bash
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -10,9 +10,11 @@ fi
 
 # custom vim dir
 set -o vi
-EDITOR="vim"
+export EDITOR="vim"
 MYVIMRC="$HOME/.dotfiles/vim/vimrc"
 export VIMINIT="source $HOME/.dotfiles/vim/vimrc"
+[[ :$PATH: != *"$HOME/.dotfiles/scripts"* ]] && PATH="${PATH}:$HOME/.dotfiles/scripts"
+export PATH
 
 # custom bash prompt.
 BASH_PLUGINS="$HOME/.dotfiles/bash_plugins"
@@ -56,6 +58,9 @@ alias sinfonf="sinfo -o '%40N %40f'"
 alias sinfodiag="sinfo -o '%30N %30f %15G %12O %4c %9z %w'"
 alias presll="preserve -llist | grep mao540"
 alias cleananalysis='rm -rI !(x.png|z.png|zlatent_mean_std_Z.pkl|z.pkl|model.pth.tar)'
+alias modlcupr='module load cuda10.1 prun'
+alias displayall='for FILE in *; do display $FILE & done'
+
 # alias sdebug='srun --job-name=realnpv_mnist --output=realnvp.log --time=00:30:00 -N 1 -C TitanX --gres=gpu:1'
 
 
@@ -64,21 +69,22 @@ highlight () { grep --color -E "$1|$" $2 ; }
 
 oneoften () {
 	if [ -z "$1" ]; then
-	echo "use '-z' for leading zeros format."
-	fi 
-
-	find . -name 'epoch_*' | while read file; do
-		if [ $1 = '-z' ]; then
-			SUB=$(echo ${file#./epoch_} | sed 's/^0*//')
-		else
-			SUB=${file#./epoch_}
-		fi
-		# echo $SUB
-		echo -ne "\rEpoch $SUB...\033[0K"
-		[ $((${SUB}% 10)) != 0 ] && rm -rf "$file";
-	done
-	echo "done."
-return 0
+		echo "use '-z' for leading zeros format."
+		exit
+	else
+		find . -name 'epoch_*' | while read file; do
+			if [ $1 == '-z' ]; then
+				SUB=$(echo ${file#./epoch_} | sed 's/^0*//')
+			else
+				SUB=${file#./epoch_}
+			fi
+			# echo $SUB
+			echo -ne "\rEpoch $SUB...\033[0K"
+			[ $((${SUB}% 10)) != 0 ] && rm -r "$file";
+		done
+		echo "done."
+		return 0
+	fi
 }
 
 countext () {
@@ -148,42 +154,6 @@ tmuxjump () {
 		countext "Found session $targetsesh. Starting in" 3
 		tmux attach -t $targetsesh
 	fi
-	fi
-}
-
-sendvu () {
-	if [ -z "$1" ]; then
-		echo "Send folder (or folders containing the given version specifier) to ssh.data.vu.nl"
-		echo -e "\nUsage:\t\tsendvu <dir-to-transfer>"
-		echo -e "or: \t\tsendvu <version-specifier>"
-		echo -e "\nactual command:"
-		echo -e "\trsync -avzh --progress --exclude='model.pth.tar' ./<dir-to-transfer> mao540@ssh.data.vu.nl:~/results"
-		echo -e "\nNOTE: If version-specifier (e.g. \"V-0.3\") is provided,"
-		echo -e "rsync will be called for each of the "
-		echo -e "folder containing the required specifier."
-	elif [ -d "$1" ]; then
-		echo "directory mode"
-			rsync -avzh --progress --exclude='model.pth.tar' \
-			            --exclude='zlatent_mean_std_Z.pkl' --exclude='z.pkl' \
-			            "./$1" "mao540@ssh.data.vu.nl:~/results"
-	elif [ -f "$1" ]; then
-		echo "file mode"
-		rsync -avh "./$1" "mao540@ssh.data.vu.nl:~/results"
-	elif [ "${1:0:2}" = "V-" ]; then
-		echo "bulk mode"
-		FP_VMARKERS=$(find . -name 'version')
-		for FP in $FP_VMARKERS; do
-			while IFS='' read -r line; do
-				if [ "$line" = "$1" ]; then
-					echo $FP
-					echo -n "Matched: $line"
-					echo " Sending to VU's servers..."
-					rsync -avzh --progress --exclude='model.pth.tar' \
-						    --exclude='zlatent_mean_std_Z.pkl' --exclude='z.pkl' \
-								"${FP%/version}" "mao540@ssh.data.vu.nl:~/results"
-				fi
-			done < "$FP"
-		done
 	fi
 }
 
