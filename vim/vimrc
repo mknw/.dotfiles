@@ -24,11 +24,12 @@ endif
 
 
 " custom paths
-set runtimepath+=~/.dotfiles/vim,~/.dotfiles/vim/after
-set viminfo+=n~/.dotfiles/vim/viminfo
-set directory=~/.dotfiles/vim/swap//,.,/var/tmp,/tmp " removed ~/tmp as 3rd to last(after .)
-set backupdir=~/.dotfiles/vim/backup//,.,~/tmp,~/
-set undodir=~/.dotfiles/vim/undo//,.
+set runtimepath+=$HOME/.dotfiles/vim,$HOME/.dotfiles/vim/after
+set viminfo+=n$HOME/.dotfiles/vim/viminfo
+" you might have to add the following dirs manually.
+set directory=$HOME/.dotfiles/vim/swap//,.,/var/tmp,/tmp " removed ~/tmp as 3rd to last(after .)
+set backupdir=$HOME/.dotfiles/vim/backup//,.,$HOME/tmp,$HOME/
+set undodir=$HOME/.dotfiles/vim/undo//,.
 " custom code installingen
 filetype plugin indent on " also for Tlist
 
@@ -62,7 +63,7 @@ au BufNewFile,BufRead *.py
 	\ let Tlist_Auto_Open=1
 
 augroup pandoc_syntax
-	au! BufNewFile,BufFilePre,BufRead *.md set filetype=mardkown.pandoc
+	au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
 
 " toggle taglist with F8:
@@ -79,5 +80,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'nbardiuk/vim-gol'
 " Plug 'altercation/vim-colors-solarized'
 call plug#end()

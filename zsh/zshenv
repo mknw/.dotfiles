@@ -14,9 +14,6 @@ export MYVIMRC="~/.dotfiles/vim/vimrc"
 export VIMINIT="source $MYVIMRC"
 export ZDIR_COLORS="$HOME/.dir_colors"
 
-
-# brightness alias br="/home/mknw/scripts/brightness" # to be changed to script
-
 # run gotop (will have to go in /usr/bin at some point)
 alias gotop="~/scripts/gotop -b"
 #
@@ -32,7 +29,6 @@ alias dasvuy="ssh -tY mao540@ssh.data.vu.nl ssh -Y fs0.das5.cs.vu.nl"
 alias clvimswp='rm ~/.config/vim/swap/*'
 alias tmux="tmux -f ~/.dotfiles/tmux/tmux.conf"
 alias reload="exec /bin/zsh -l"
-alias br="~/scripts/brightness" # takes an int argument between 0 and 30 (brightness level)
 alias lastcmd="fc -n -1" # changing integer returns N last commands. Command allows editing before being issued.
 alias man-flash="~/scripts/man-flashcard"
 alias speaker="~/scripts/connectSpeaker.sh"
@@ -56,6 +52,7 @@ alias listgovernors="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_
 alias governor="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 alias performance="echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 alias powersave="echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+alias grepc='grep --color=auto'
 
 # temporary
 alias activenvtsw="source ~/.venv/tswvenv37/bin/activate"
@@ -86,9 +83,53 @@ path+=/usr/local/texlive/2019/bin/x86_64-linux
 
 grabvu () {
 	# grab content from VU's servers
-	echo "copying files from ssh.data.vu.nl:~/MAIP ..."
-	rsync -avzh --progress "mao540@ssh.data.vu.nl:~/results" ~/MAIP
-	echo "done."
+	if [ -z "$1" ]; then
+
+		echo "transfer from remote, straight into ~/MAIP/results? "
+		echo "yes / dry-run / no [ydN]: "
+		read answer
+
+		if [ "$answer" = "y" ]; then
+			rsync -avzh --progress "mao540@ssh.data.vu.nl:~/results" ~/MAIP
+			echo "done."
+		elif [ "$answer" = "d" ]; then
+			rsync --dry-run -avzh --progress "mao540@ssh.data.vu.nl:~/results" ~/MAIP
+		else
+			echo "'grabvu -h' for help."
+			echo "exiting..."
+		fi
+
+	elif [ "$1" = "-h" ]; then
+		echo "Usage:"
+		echo "grabvu <destination directory>"
+
+	elif [ -d "$1" ]; then
+
+		if [ -z "$(ls -A $1)" ]; then
+			rsync -azh --progress "mao540@ssh.data.vu.nl:~/results" "$1"
+		else
+			echo "files found in $1. risk over-write?"
+			read overanswer
+			if [ "$overanswer" = "y" ]; then
+				echo "good"
+				rsync -azhr --progress "mao540@ssh.data.vu.nl:~/results/" "$1"
+			else
+				exit
+			fi
+		fi
+
+	elif [ ! -d "$1" ]; then
+		echo -n "Directory $1 doesn't exist. Create? [yN] "
+		read createanswer
+
+		if [ "$createanswer" = "y" ]; then
+			mkdir -p "$1"
+			rsync -azh --progress "mao540@ssh.data.vu.nl:~/results/" "$1"
+		else
+			echo "exiting..."
+		fi
+
+	fi
 }
 
 # color functions
