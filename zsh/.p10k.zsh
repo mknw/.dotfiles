@@ -315,9 +315,9 @@
   #   typeset -g POWERLEVEL9K_DIR_WORK_FOREGROUND=31
   #   typeset -g POWERLEVEL9K_DIR_WORK_SHORTENED_FOREGROUND=103
   #   typeset -g POWERLEVEL9K_DIR_WORK_ANCHOR_FOREGROUND=39
-  typeset -g POWERLEVEL9K_DIR_PROJECT_FOREGROUND=125
-  typeset -g POWERLEVEL9K_DIR_PROJECT_SHORTENED_FOREGROUND=125
-  typeset -g POWERLEVEL9K_DIR_PROJECT_ANCHOR_FOREGROUND=125
+  typeset -g POWERLEVEL9K_DIR_PROJECT_FOREGROUND=222
+  typeset -g POWERLEVEL9K_DIR_PROJECT_SHORTENED_FOREGROUND=222
+  typeset -g POWERLEVEL9K_DIR_PROJECT_ANCHOR_FOREGROUND=222
 
   typeset -g POWERLEVEL9K_DIR_HOME_ANCHOR_FOREGROUND=251
   typeset -g POWERLEVEL9K_DIR_HOME_SHORTENED_FOREGROUND=120
@@ -358,7 +358,7 @@
 				'~/Downloads(|/*)'      DOWNLOADS       '' # '' ''
 				'~/Documents(|/*)'      DOCUMENTS       ''
 				'~/scripts(|/*)'        SCRIPTS         '' # ''
-				'~/(MAIP|Arduino|UNI|SC)(|/*)' PROJECT  '' # ''
+				'~/(MAIP|Arduino|UNI|SC)(|/*)' PROJECT  '👁' # ' # ''
 				'~/Music(|/*)'          MUSIC           '' # ''
 				'~/Pictures(|/*)'       PICTURES        '' # 
 				'~/Videos(|/*)'         VIDEO           '' # ''
