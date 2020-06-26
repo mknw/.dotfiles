@@ -1,0 +1,50 @@
+#!/usr/bin/bash
+
+sendvu () {
+	if [ -z "$1" ]; then
+		echo "Send folder (or folders containing the given version specifier) to ssh.data.vu.nl"
+		echo -e "\nUsage:\t\tsendvu <dir-to-transfer>"
+		echo -e "or: \t\tsendvu <version-specifier>"
+		echo -e "\nactual command:"
+		echo -e "\trsync -avzh --progress --exclude='model.pth.tar' ./<dir-to-transfer> mao540@ssh.data.vu.nl:~/results"
+		echo -e "\nNOTE: If version-specifier (e.g. \"V-0.3\") is provided,"
+		echo -e "rsync will be called for each of the "
+		echo -e "folder containing the required specifier."
+	elif [ -d "$1" ]; then
+		echo "directory mode"
+			rsync -avzh --progress --exclude='model.pth.tar' \
+			            --exclude='zlatent_mean_std_Z.pkl' --exclude='z.pkl' \
+			            "./$1" "mao540@ssh.data.vu.nl:~/results"
+	elif [ -f "$1" ]; then
+		echo "file mode"
+		rsync -avh "./$1" "mao540@ssh.data.vu.nl:~/results"
+	elif [ "${1:0:2}" = "V-" ]; then
+		DIRS_ARRAY=()
+		echo "bulk mode"
+		FP_VMARKERS=$(find . -name 'version')
+
+		for FP in $FP_VMARKERS; do
+			while IFS='' read -r line; do
+				# loops through all lines in ./epoch_xxx/version,
+				# looking for ver. specifier (V-x.x).
+				if [ "$line" = "$1" ]; then
+					# echo $FP
+					echo -n "Matched: '$line'"
+					FOUND_VER="${FP%/version}"
+					echo -e "\tadding $FOUND_VER to array..."
+					DIRS_ARRAY+=("$FOUND_VER")
+				fi
+			done < "$FP"
+		done
+		
+		echo "sending to vu servers..."
+		rsync -avzh --progress --exclude='model.pth.tar' \
+			    --exclude='zlatent_mean_std_Z.pkl' --exclude='z.pkl' \
+					"${DIRS_ARRAY[@]}" "mao540@ssh.data.vu.nl:~/results"
+		echo "done."
+	fi
+
+}
+
+
+sendvu $1

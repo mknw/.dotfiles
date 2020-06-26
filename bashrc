@@ -87,6 +87,14 @@ oneoften () {
 	fi
 }
 
+oneoftenrange() {
+	if [ ! -z "$1" ]; then
+		echo "Usage: oneoftenrange <regex>"
+		echo "Example: oneoften 'epoch_[12][0-9][1-9]"
+		find . -name "$1" -exec sh -c 'rm -r $0' {} \;
+	fi
+}
+
 countext () {
 	TIME=$2
 	TEXT=$1
