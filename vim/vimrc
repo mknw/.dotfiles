@@ -62,6 +62,10 @@ let g:airline_theme='deus'
 au BufNewFile,BufRead *.py
 	\ let Tlist_Auto_Open=1
 
+" yaml
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal autoindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+
 " pnadoc markdown.
 augroup pandoc_syntax
 	au! BufNewFile,BufFilePre,BufRead *.md set filetype=mardkown.pandoc

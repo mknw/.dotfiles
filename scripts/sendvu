@@ -13,10 +13,14 @@ sendvu () {
 	elif [ -d "$1" ]; then
 		echo "directory mode"
 			rsync -avzh --progress --exclude='model.pth.tar' \
-			            --exclude='zlatent_mean_std_Z.pkl' --exclude='z.pkl' \
+			            --exclude='zlatent_mean_std_Z.pkl' \
+			            --exclude='z.pkl' \
+			            --exclude='z_mean_std.pkl' \
+			            --exclude='gauss_pvalue_counts.pkl' \
+			            --exclude='optim_*' \
 			            "./$1" "mao540@ssh.data.vu.nl:~/results"
 	elif [ -f "$1" ]; then
-		echo "file mode"
+		echo "single file mode"
 		rsync -avh "./$1" "mao540@ssh.data.vu.nl:~/results"
 	elif [ "${1:0:2}" = "V-" ]; then
 		DIRS_ARRAY=()
@@ -39,7 +43,11 @@ sendvu () {
 		
 		echo "sending to vu servers..."
 		rsync -avzh --progress --exclude='model.pth.tar' \
-			    --exclude='zlatent_mean_std_Z.pkl' --exclude='z.pkl' \
+			                     --exclude='z_mean_std.pkl' \
+			                     --exclude='zlatent_mean_std_Z.pkl' \
+			                     --exclude='z.pkl' \
+			                     --exclude='gauss_pvalue_counts.pkl' \
+			                     --exclude='optim_160001.pt' \
 					"${DIRS_ARRAY[@]}" "mao540@ssh.data.vu.nl:~/results"
 		echo "done."
 	fi

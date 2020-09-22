@@ -10,7 +10,7 @@ set laststatus=2
 set t_Co=16
 
 " legacy, tested, indentation. 
-set autoindent noexpandtab tabstop=2 shiftwidth=2 softtabstop=-1
+set autoindent noexpandtab tabstop=3 shiftwidth=3 softtabstop=-1
 
 " experimental indent. 
 " notes :
@@ -23,14 +23,18 @@ set autoindent noexpandtab tabstop=2 shiftwidth=2 softtabstop=-1
 
 autocmd BufNewFile,BufRead *.py
 	\ set textwidth=99 fileformat=unix encoding=utf-8
+		
 
+" yaml
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal autoindent tabstop=2 softtabstop=2 expandtab
 
 
 " search parameters
 set hls " short for hlsearch
 " set ic " ignorecase
 
-" What is essential is invisible to the eye"
+" What is essential is invisible to the eye "
 set list
 set listchars=eol:⏎,tab:⟩\ ,trail:␠,nbsp:⎵,extends:>,precedes:<
 " make file option setting possible:
