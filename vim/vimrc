@@ -22,6 +22,10 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
+"remove annoying beeps
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
 
 " custom paths
 set runtimepath+=$HOME/.dotfiles/vim,$HOME/.dotfiles/vim/after
@@ -61,6 +65,9 @@ let g:airline_theme='deus'
 " Auto-open at vim startup.
 au BufNewFile,BufRead *.py
 	\ let Tlist_Auto_Open=1
+
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal autoindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab⏎
 
 augroup pandoc_syntax
 	au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc

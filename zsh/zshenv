@@ -16,19 +16,16 @@ export ZDIR_COLORS="$HOME/.dir_colors"
 
 # run gotop (will have to go in /usr/bin at some point)
 alias gotop="~/scripts/gotop -b"
-#
+alias btmb="btm --battery"
+
 # ssh
-alias appjoast="ssh maccetto@app.joascantech.com"
-alias joast="ssh maccetto@joascantech.com"
-alias f-joast='ssh -t maccetto@joascantech.com ssh maccetto@app.joascantech.com'
-alias spinoza="ssh accetto@login-01.spinozacentre.nl"
 alias dasvu="ssh -t mao540@ssh.data.vu.nl ssh fs0.das5.cs.vu.nl"
 alias das="ssh mao540@fs0.das5.cs.vu.nl"
 alias dasvuy="ssh -tY mao540@ssh.data.vu.nl ssh -Y fs0.das5.cs.vu.nl"
 # alias pleasetlmgr="sudo /usr/local/texlive/2019/bin/x86_64-linux/tlmgr" 
 alias clvimswp='rm ~/.config/vim/swap/*'
 alias tmux="tmux -f ~/.dotfiles/tmux/tmux.conf"
-alias reload="exec /bin/zsh -l"
+alias reload="exec /bin/zsh -l; echo Shell refreshed."
 alias lastcmd="fc -n -1" # changing integer returns N last commands. Command allows editing before being issued.
 alias man-flash="~/scripts/man-flashcard"
 alias speaker="~/scripts/connectSpeaker.sh"
@@ -52,10 +49,18 @@ alias listgovernors="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_
 alias governor="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 alias performance="echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 alias powersave="echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+
 alias grepc='grep --color=auto'
+alias resetaudio='pulseaudio -k && sudo alsa force-reload'
+alias protege='$HOME/KaD/Protege-5.5.0/run.sh'
+alias topdf='libreoffice --headless --invisible --convert-to pdf'
 
 # temporary
 alias activenvtsw="source ~/.venv/tswvenv37/bin/activate"
+alias mountmatlab='sudo mount /dev/sda4 ~/samssd; /home/mknw/samssd/matlab/bin/matlab -nosplash -r "cd $HOME/RoB2020/NBT_26112020/; installNBT" &'
+alias restart-displaylink='sudo systemctl start displaylink-driver.service'
+alias wintergame="clazer mode=game modK=ffffff letters=10E0C0 fKeys=faaf00 other=FF0052 posK=ed00ff"
+alias altgame="clazer mode=game modK=ff1cca letters=c2c2c2 fKeys=ff9100 other=000000 posK=000000 numK=4dffc3"
 
 # functions
 highlight () { grep --color -E "$1|$" $2 ; }
@@ -164,4 +169,20 @@ else
 	done
 fi
 return 0
+}
+
+findver () {
+	if [ -z "$1" ]; then
+		find . -name 'version' -exec sh -c 'echo "$0: $(cat $0)"' {} \;
+	else
+		FP_VMARKERS=$(find . -name 'version')
+		for FP in $FP_VMARKERS; do
+			while IFS='' read -r line; do
+				if [ "$line" = "$1" ]; then
+					echo $FP
+					echo "Matched: $line"
+				fi
+			done < "$FP"
+		done
+	fi
 }
